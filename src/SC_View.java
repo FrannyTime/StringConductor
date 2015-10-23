@@ -104,6 +104,7 @@ public class SC_View extends Application {
 
 
     public static void main(String[] args) {
-        launch(args);
+        //launch(args);
+
     }
 }
