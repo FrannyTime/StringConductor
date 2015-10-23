@@ -61,30 +61,33 @@ public class SC_View extends Application {
         final Menu menu1 = new Menu("File");
         final Menu menu2 = new Menu("Options");
         final Menu menu3 = new Menu("Help");
-        Menu menu4 = new Menu("Import");
 
         MenuItem hi = new MenuItem("hi");
         MenuItem importBut = new MenuItem("Import");
 
+        //Add Import to under file
         menu1.getItems().addAll(hi, importBut);
 
-        hi.setOnAction(e -> yearLabel.setText("Hi"));
+        //Sets action of import button and returns path directory
 
-        //Import action
         importBut.setOnAction(e -> {
             FileChooser fileChooser = new FileChooser();
             fileChooser.setTitle("Open Resource File");
             final File file = fileChooser.showOpenDialog(primaryStage);
-
             System.out.println("getCurrentDirectory(): " + file.getPath());
-            //System.out.println("getSelectedFile() : " + chooser.getSelectedFile());
         });
 
-
-
-        menuBar.getMenus().addAll(menu1, menu2, menu3, menu4);
-
+        //Adds menu bar to window and set to top of pane
+        menuBar.getMenus().addAll(menu1, menu2, menu3);
         bp.setTop(menuBar);
+
+        //Adds text area to window and set to right of pane
+        final TextArea originalArea = new TextArea();
+        hi.setOnAction(e -> originalArea.setText("Hi"));
+        //originalArea.setWrapText(true);
+        bp.setMargin(originalArea, new Insets(12, -120, 12, 12));
+        bp.setRight(originalArea);
+
 
         Scene scene = new Scene(bp, 700, 500);
         primaryStage.setTitle("String Conductor");
