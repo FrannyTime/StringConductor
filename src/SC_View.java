@@ -83,7 +83,13 @@ public class SC_View extends Application {
 
         //Adds text area to window and set to right of pane
         final TextArea originalArea = new TextArea();
-        hi.setOnAction(e -> originalArea.setText("Hi"));
+        String entry = "entry";
+
+        String filePath = "/Users/danieltam/Desktop/textFile.txt";
+        SC_Model_v1_franny frannyObject = new SC_Model_v1_franny();
+        String myString = frannyObject.readFile(filePath);
+
+        hi.setOnAction(e -> originalArea.setText(myString));
         //originalArea.setWrapText(true);
         bp.setMargin(originalArea, new Insets(12, -120, 12, 12));
         bp.setRight(originalArea);
