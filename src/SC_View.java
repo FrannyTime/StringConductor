@@ -69,6 +69,8 @@ public class SC_View extends Application {
         menu1.getItems().addAll(hi, importBut);
 
         hi.setOnAction(e -> yearLabel.setText("Hi"));
+
+        //Import button
         importBut.setOnAction(e -> {
             FileChooser fileChooser = new FileChooser();
             fileChooser.setTitle("Open Resource File");
