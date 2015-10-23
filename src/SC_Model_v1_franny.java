@@ -1,5 +1,6 @@
 import java.io.*;
 import java.io.FileReader;
+import java.text.BreakIterator;
 
 /**
  * Created by Natera on 10/22/15.
@@ -39,6 +40,11 @@ public class SC_Model_v1_franny
         String filePath = "/Users/Natera/Documents/CS/SC_text.txt";
         String myString = readFile(filePath);
         System.out.println(myString);
+
+        DocumentParser myParser = new DocumentParser();
+        myParser.documentParser(myString);
+
+
 
     }
 }
