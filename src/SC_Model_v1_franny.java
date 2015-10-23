@@ -33,14 +33,15 @@ public class SC_Model_v1_franny
         }
     }
 
-    public static void main (String[] args) throws IOException, FileNotFoundException {
+    public static void main (String[] args) throws IOException, FileNotFoundException
+    {
 
         String filePath = "/Users/Natera/Documents/CS/SC_text.txt";
         String myString = readFile(filePath);
         System.out.println(myString);
 
     }
-    }
+}
 
 
 
