@@ -37,7 +37,7 @@ public class FileReader {
     //Change arg to "File docFile" after Daniel writes interface to locate docFile
     public void textScanner() throws FileNotFoundException
     {
-        String path = "/Users/PeteCurtis/git/StringConductor/src/com/company/stuff.txt";
+        String path = "/Users/PeteCurtis/git/StringConductor/src/stuff.txt";
         java.io.File docFile = new java.io.File(path);
         try {
             Scanner input = new Scanner(docFile);
