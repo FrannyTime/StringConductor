@@ -5,8 +5,8 @@ public class SC_Controller
 {
     public static void main(String args[] )
     {
-        System.out.println("hello");
-        System.out.println("daniel is a boss");
+        // show the main window
+        // show the
 
 
     }
