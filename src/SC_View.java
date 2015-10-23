@@ -70,7 +70,7 @@ public class SC_View extends Application {
 
         hi.setOnAction(e -> yearLabel.setText("Hi"));
 
-        //Import button
+        //Import action
         importBut.setOnAction(e -> {
             FileChooser fileChooser = new FileChooser();
             fileChooser.setTitle("Open Resource File");
