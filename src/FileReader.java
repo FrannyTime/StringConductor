@@ -13,19 +13,37 @@ import java.util.Scanner;
  * The purpose of this class is to import a text document phrase by phrase into the String Conductors memory.
  *
  *
- */
-public class FileReader
-{
+
+public class FileReader {
     String theDocument ="";
 
+    public static String readFile(String  location) throws FileNotFoundException
+    {
+        String theDocument = "";
 
+        java.io.File docFile = new java.io.File(location);
+        try
+        {
+            Scanner input = new Scanner(docFile);
+            while (input.hasNext()) {
+                theDocument += input.nextLine();
+            }
+            input.close();
+        }
+        catch(FileNotFoundException e)
+        {
+            System.out.println("FileNotFound");
+        } //catch block
+
+        return theDocument;
+    }
 
     /**
-     * @param file variable
+     * param file variable
      * This checks to see if a file is in UTF-8 or not
      * @return  True if a file is UTF-8
      * False if it is not
-     * */
+     *
     private boolean checkFileFormat(File file)
     {
         //CHECK TO SEE IF THE FILE IS A UTF FILE
@@ -44,7 +62,8 @@ public class FileReader
      * This checks to see if a file is in UTF-8 or not
      * @return  True if a file is UTF-8
      * False if it is not
-     * */
+     *
 
 
 } //class
+        */
