@@ -1,0 +1,26 @@
+/*
+for (sentence : document)
+{
+	String[] sentenceArray = arrayifySentence(sentence);
+	processSentenceArray(sentenceArray);
+}
+
+private static void processSentenceArray(String[] sentenceArray)
+{
+	public static final in MAX_PHRASE_LENGTH = 10;
+	int maxPhraseLength = MAX_PHRASE_LENGTH;
+	public static final in MIN_PHRASE_LENGTH = 2;
+
+	if (sentenceArray.length < maxPhraseLength)
+	{
+		maxPhraseLength = sentenceArray.length;
+	}
+
+	Integer phraseLength = MIN_PHRASE_LENGTH;
+
+	for (phraseLength; phraseLength < maxPhraseLength; phraseLength++)
+	{
+		chopSentenceArray(sentenceArray, phraseLength)
+	}
+}
+*/
