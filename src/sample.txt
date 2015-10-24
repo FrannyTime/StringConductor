@@ -116,3 +116,24 @@ public static String makeDocument(String inputFileLocation)
 
 }
 hjg
+
+    public static String readFile(String  location) throws FileNotFoundException
+    {
+        String theDocument = "";
+
+        java.io.File docFile = new java.io.File(location);
+        try
+        {
+            Scanner input = new Scanner(docFile);
+            while (input.hasNext()) {
+                theDocument += input.nextLine();
+            }
+            input.close();
+        }
+        catch(FileNotFoundException e)
+        {
+            System.out.println("FileNotFound");
+        } //catch block
+
+        return theDocument;
+    }
