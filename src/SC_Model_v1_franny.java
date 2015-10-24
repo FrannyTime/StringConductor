@@ -14,9 +14,29 @@ public class SC_Model_v1_franny
     public static final Integer MAX_PHRASE_LENGTH = 10;
     public static final Integer MIN_PHRASE_LENGTH = 2;
     public static HashMap<String, Integer> phraseTable = new HashMap<String, Integer>();
-    public static final String FILE_LOCATION = "location";
+    public static final String FILE_LOCATION = "/Users/Natera/Documents/CS/SC_text.txt";
 
+    public static String readFile(String location) throws FileNotFoundException
+    {
+        String theDocument = "";
 
+        java.io.File docFile = new java.io.File(location);
+        try
+        {
+            Scanner input = new Scanner(docFile);
+            while (input.hasNext())
+            {
+                theDocument += input.nextLine();
+            }
+            input.close();
+        }
+        catch(FileNotFoundException e)
+        {
+            System.out.println("FileNotFound");
+        } //catch block
+
+        return theDocument;
+    }
 
     private static void processSentenceArray(String[] sentenceArray)
     {
@@ -83,10 +103,7 @@ public class SC_Model_v1_franny
         }
     }
 
-
-
-
-    public static void main (String[] args) throws IOException, FileNotFoundException
+    public static void main (String[] args) throws IOException
     {
         BreakIterator iterator = BreakIterator.getSentenceInstance(Locale.US);
 
@@ -99,6 +116,11 @@ public class SC_Model_v1_franny
             String sentence = document.substring(start, end);
             String[] sentenceArray = sentence.split("\\s+");
             processSentenceArray(sentenceArray);
+        }
+
+        for (Map.Entry<String, Integer> entry : phraseTable.entrySet())
+        {
+            System.out.println(entry);
         }
     }
 }
