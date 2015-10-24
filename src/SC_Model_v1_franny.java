@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.BreakIterator;
 import java.util.*;
+import java.lang.StringBuilder;
 
 
 
@@ -12,21 +13,10 @@ public class SC_Model_v1_franny
     private static final String PHRASE_DELIMITER = " ";
     public static final Integer MAX_PHRASE_LENGTH = 10;
     public static final Integer MIN_PHRASE_LENGTH = 2;
-    public HashMap<String, Integer> phraseTable = new HashMap<String, Integer>();
+    public static HashMap<String, Integer> phraseTable = new HashMap<String, Integer>();
+    public static final String FILE_LOCATION = "location";
 
-    BreakIterator iterator = BreakIterator.getSentenceInstance(Locale.US);
-    String document = fileReader(location);
-    iterator.setText(document);
-    int start = iterator.first();
 
-    for (int end = iterator.next(); end != BreakIterator.DONE;
-    start = end, end = iterator.next())
-    {
-        String sentence = document.substring(start, end);
-        String[] sentenceArray = sentence.split("\\s+");
-        processSentenceArray(sentenceArray);
-
-    }
 
     private static void processSentenceArray(String[] sentenceArray)
     {
@@ -37,11 +27,11 @@ public class SC_Model_v1_franny
             maxPhraseLength = sentenceArray.length;
         }
 
-        Integer phraseLength = MIN_PHRASE_LENGTH;
+        int phraseLength;
 
-        for (phraseLength; phraseLength < maxPhraseLength; phraseLength++)
+        for (phraseLength = MIN_PHRASE_LENGTH; phraseLength < maxPhraseLength; phraseLength++)
         {
-            chopSentenceArray(sentenceArray, phraseLength)
+            chopSentenceArray(sentenceArray, phraseLength);
         }
     }
 
@@ -57,13 +47,15 @@ public class SC_Model_v1_franny
                 {
                     int k = phraseStartPosition;
                     String hashEntry = new String();
+                    StringBuilder stringBuilder = new StringBuilder();
+
                     for (k = phraseStartPosition; k < phraseStartPosition + (phraseLength - 1); k++)
                     {
-                        hashentry += sentenceArray[k] + PHRASE_DELIMITER;
+                        stringBuilder.append(sentenceArray[k] + PHRASE_DELIMITER);
                     }
 
+                    hashEntry = stringBuilder.toString();
                     addToPhraseTable(hashEntry);
-                    phraseTable.put(hashEntry, number);
                 }
                 else
                 {
@@ -78,7 +70,6 @@ public class SC_Model_v1_franny
             phraseStartPosition++;
         }
     }
-
 
     private static void addToPhraseTable(String hashEntry)
     {
@@ -96,13 +87,18 @@ public class SC_Model_v1_franny
 
     public static void main (String[] args) throws IOException, FileNotFoundException
     {
+        BreakIterator iterator = BreakIterator.getSentenceInstance(Locale.US);
 
-        String filePath = "/Users/Natera/Documents/CS/SC_text.txt";
-        String myString = readFile(filePath);
-        System.out.println(myString);
+        String document = readFile(FILE_LOCATION);
+        iterator.setText(document);
+        int start = iterator.first();
 
-        DocumentParser myParser = new DocumentParser();
-        myParser.documentParser(myString);
+        for (int end = iterator.next(); end != BreakIterator.DONE; start = end, end = iterator.next())
+        {
+            String sentence = document.substring(start, end);
+            String[] sentenceArray = sentence.split("\\s+");
+            processSentenceArray(sentenceArray);
+        }
     }
 }
 
