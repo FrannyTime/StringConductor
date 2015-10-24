@@ -1,4 +1,4 @@
-/*
+
     private static final String PHRASE_DELIMITER = " ";
     public static final Integer MAX_PHRASE_LENGTH = 10;
     public static final Integer MIN_PHRASE_LENGTH = 2;
@@ -6,7 +6,7 @@
 
 for (sentence : document)
 {
-	String[] sentenceArray = arrayifySentence(sentence);
+	String[] sentenceArray = sentence.split("\\s+");
 	processSentenceArray(sentenceArray);
 }
 
@@ -26,7 +26,6 @@ private static void processSentenceArray(String[] sentenceArray)
 		chopSentenceArray(sentenceArray, phraseLength)
 	}
 }
-*/
 
 private static void chopSentenceArray(String[] sentenceArray, Integer phraseLength)
 {
@@ -67,13 +66,52 @@ private static void addToPhraseTable(String hashEntry)
 {
     if (phraseTable.containsKey(hashEntry))
     {
-        phraseTable.put(hashEntry, allPrimerReads.get(primer) + 1);
+        phraseTable.put(hashEntry, phraseTable.get(hashEntry) + 1);
     }
     else
     {
-        allPrimerReads.put(primer, 1);
+        phraseTable.put(hashEntry, 1);
     }
 }
 
+public static String makeDocument(String inputFileLocation)
+{
+    String theDocument ="";
 
+    /**
+     * @param file file variable
+     * This checks to see if a file is in UTF-8 or not
+     * @return  True if a file is UTF-8
+     * False if it is not
+     * */
+    public String getDocument()
+    {
+        return theDocument;
+    }
 
+    private boolean checkFileFormat(File file)
+    {
+        return true;
+    }
+
+    //Method to import text with scanner
+    //Change arg to "File docFile" after Daniel writes interface to locate docFile
+    public void textScanner() throws FileNotFoundException
+    {
+        java.io.File docFile = new java.io.File(inputFileLocation);
+        try
+        {
+            Scanner input = new Scanner(docFile);
+            while (input.hasNext()) {
+                theDocument += input.nextLine();
+            }
+            input.close();
+            System.out.println(theDocument);
+        }
+        catch(FileNotFoundException e)
+        {
+            System.out.println("FileNotFound");
+        } //catch block
+    }
+
+}
