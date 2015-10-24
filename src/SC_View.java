@@ -17,10 +17,19 @@ import java.io.File;
 
 public class SC_View extends Application {
 
+    public void makeWindow()
+    {
+
+    }
     @Override
     public void start(Stage primaryStage) throws Exception{
 
         BorderPane bp = new BorderPane();
+
+        Scene scene = new Scene(bp, 700, 500);
+        primaryStage.setTitle("String Conductor");
+        primaryStage.setScene(scene);
+        primaryStage.show();
 
         Text yearLabel = new Text("Results");
         TextField yearInput = new TextField();
@@ -93,12 +102,6 @@ public class SC_View extends Application {
         //originalArea.setWrapText(true);
         bp.setMargin(originalArea, new Insets(12, -120, 12, 12));
         bp.setRight(originalArea);
-
-
-        Scene scene = new Scene(bp, 700, 500);
-        primaryStage.setTitle("String Conductor");
-        primaryStage.setScene(scene);
-        primaryStage.show();
 
     }
 
