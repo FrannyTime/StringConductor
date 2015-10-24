@@ -1,4 +1,9 @@
 /*
+    private static final String PHRASE_DELIMITER = " ";
+    public static final Integer MAX_PHRASE_LENGTH = 10;
+    public static final Integer MIN_PHRASE_LENGTH = 2;
+    public HashMap<String, Integer> phraseTable = new HashMap<String, Integer>();
+
 for (sentence : document)
 {
 	String[] sentenceArray = arrayifySentence(sentence);
@@ -7,9 +12,7 @@ for (sentence : document)
 
 private static void processSentenceArray(String[] sentenceArray)
 {
-	public static final in MAX_PHRASE_LENGTH = 10;
 	int maxPhraseLength = MAX_PHRASE_LENGTH;
-	public static final in MIN_PHRASE_LENGTH = 2;
 
 	if (sentenceArray.length < maxPhraseLength)
 	{
@@ -24,3 +27,53 @@ private static void processSentenceArray(String[] sentenceArray)
 	}
 }
 */
+
+private static void chopSentenceArray(String[] sentenceArray, Integer phraseLength)
+{
+    int phraseStartPosition = 0
+
+    while (phraseStartPosition <= sentenceArray.length )
+    {
+        try
+        {
+        	if (sentenceArray[j + (phraseLength-1)] != null)
+        	{
+                int k = phraseStartPosition;
+        		String hashEntry = new String();
+        		for (k = startPosition; k < startPosition + (phraseLength - 1); k++)
+        		{
+        			hashentry += sentenceArray[k] + delimiter;
+        		}
+
+                addToPhraseTable(hashEntry);
+            	phraseTable.put(hashEntry, number);
+            }
+        	else
+            {
+                continue;
+            }
+        }
+        catch (ArrayIndexOutOfBoundsException aiobe)
+        {
+            System.out.println(aiobe);
+        }
+
+        phraseStartPosition++;
+        }
+    }
+}
+
+private static void addToPhraseTable(String hashEntry)
+{
+    if (phraseTable.containsKey(hashEntry))
+    {
+        phraseTable.put(hashEntry, allPrimerReads.get(primer) + 1);
+    }
+    else
+    {
+        allPrimerReads.put(primer, 1);
+    }
+}
+
+
+
