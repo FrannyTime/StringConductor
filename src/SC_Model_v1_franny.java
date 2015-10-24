@@ -39,7 +39,7 @@ public class SC_Model_v1_franny
     {
         int phraseStartPosition = 0;
 
-        while (phraseStartPosition <= sentenceArray.length )
+        while (phraseStartPosition <= sentenceArray.length)
         {
             try
             {
@@ -82,6 +82,7 @@ public class SC_Model_v1_franny
             phraseTable.put(hashEntry, 1);
         }
     }
+
 
 
 

@@ -14,7 +14,8 @@ import java.util.Scanner;
  *
  *
  */
-public class FileReader {
+public class FileReader
+{
     String theDocument ="";
 
 
