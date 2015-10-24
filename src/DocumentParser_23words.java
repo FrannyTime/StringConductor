@@ -55,6 +55,7 @@ public class DocumentParser_23words
             }
 
             i = 0;
+
             while (i < sentenceArray.length - 1)
             {
                 try
