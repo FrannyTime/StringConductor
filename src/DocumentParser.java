@@ -128,11 +128,5 @@ public class DocumentParser {
             phraseStartPosition++;
         }
     }
-}
-    }
-
-
-    }
-
 }//class
 
