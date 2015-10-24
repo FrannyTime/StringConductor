@@ -17,40 +17,33 @@ import java.util.Scanner;
 public class FileReader {
     String theDocument ="";
 
+
+
+    /**
+     * @param file variable
+     * This checks to see if a file is in UTF-8 or not
+     * @return  True if a file is UTF-8
+     * False if it is not
+     * */
+    private boolean checkFileFormat(File file)
+    {
+        //CHECK TO SEE IF THE FILE IS A UTF FILE
+        if(File)
+        return false;
+    }
+
+    public String getDocument()
+    {
+        return theDocument;
+    }
+
+
     /**
      * @param file file variable
      * This checks to see if a file is in UTF-8 or not
      * @return  True if a file is UTF-8
      * False if it is not
      * */
-    public String getDocument()
-    {
-        return theDocument;
-    }
 
-    private boolean checkFileFormat(File file)
-    {
-        return true;
-    }
-
-    //Method to import text with scanner
-    //Change arg to "File docFile" after Daniel writes interface to locate docFile
-    public void textScanner() throws FileNotFoundException
-    {
-        String path = "/Users/PeteCurtis/git/StringConductor/src/stuff.txt";
-        java.io.File docFile = new java.io.File(path);
-        try {
-            Scanner input = new Scanner(docFile);
-            while (input.hasNext()) {
-                theDocument += input.nextLine();
-            }
-            input.close();
-            System.out.println(theDocument);
-        }
-        catch(FileNotFoundException e)
-        {
-            System.out.println("FileNotFound");
-        } //catch block
-    }
 
 } //class
