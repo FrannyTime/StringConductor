@@ -137,3 +137,7 @@ hjg
 
         return theDocument;
     }
+
+    To do:
+    - implement comparator to sort the TreeMap by the VALUE instead of key
+    - remove period (last char) of the sentenceArray[] right before processSentenceArray

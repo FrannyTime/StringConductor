@@ -10,10 +10,11 @@ import java.lang.StringBuilder;
 
 public class SC_Model_v1_franny
 {
-    private static final String PHRASE_DELIMITER = " ";
+    private static final String PHRASE_DELIMITER1 = " ";
+    private static final String PHRASE_DELIMITER2 = "\n";
     public static final Integer MAX_PHRASE_LENGTH = 10;
     public static final Integer MIN_PHRASE_LENGTH = 2;
-    public static HashMap<String, Integer> phraseTable = new HashMap<String, Integer>();
+    public static TreeMap<String, Integer> phraseTable = new TreeMap<>();
     public static final String FILE_LOCATION = "/Users/Natera/Documents/CS/SC_text.txt";
 
     public static String readFile(String location) throws FileNotFoundException
@@ -49,8 +50,9 @@ public class SC_Model_v1_franny
 
         int phraseLength;
 
-        for (phraseLength = MIN_PHRASE_LENGTH; phraseLength < maxPhraseLength; phraseLength++)
+        for (phraseLength = MIN_PHRASE_LENGTH; phraseLength <= maxPhraseLength; phraseLength++)
         {
+            System.out.println(phraseLength);
             chopSentenceArray(sentenceArray, phraseLength);
         }
     }
@@ -58,29 +60,34 @@ public class SC_Model_v1_franny
     private static void chopSentenceArray(String[] sentenceArray, Integer phraseLength)
     {
         int phraseStartPosition = 0;
+        int successCounter = 1;
 
-        while (phraseStartPosition <= sentenceArray.length)
+        while (phraseStartPosition <= (sentenceArray.length - phraseLength))
         {
             try
             {
-                if (sentenceArray[phraseStartPosition + (phraseLength-1)] != null)
+                if (sentenceArray[phraseStartPosition + (phraseLength - 1)] != null)
                 {
                     int k = phraseStartPosition;
                     String hashEntry = new String();
                     StringBuilder stringBuilder = new StringBuilder();
 
-                    for (k = phraseStartPosition; k < phraseStartPosition + (phraseLength - 1); k++)
+                    for (; k < phraseStartPosition + (phraseLength); k++)
                     {
-                        stringBuilder.append(sentenceArray[k] + PHRASE_DELIMITER);
+                        stringBuilder.append(sentenceArray[k] + PHRASE_DELIMITER1);
                     }
 
                     hashEntry = stringBuilder.toString();
                     addToPhraseTable(hashEntry);
+                    System.out.println(hashEntry + "\t" + phraseLength);
+                    System.out.println("success" + "\t" + successCounter);
+                    successCounter++;
                 }
                 else
                 {
-                    continue;
+                    break;
                 }
+
             }
             catch (ArrayIndexOutOfBoundsException aiobe)
             {
