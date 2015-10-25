@@ -10,10 +10,9 @@ import java.lang.StringBuilder;
 public class SC_Controller_v1_franny
 {
 
-    public static final Integer MAX_PHRASE_LENGTH = 10;
+    public static final Integer MAX_PHRASE_LENGTH = 11;
     public static final Integer MIN_PHRASE_LENGTH = 2;
     private static final String PHRASE_DELIMITER = " ";
-
 
     public static String theDocument = "";
 

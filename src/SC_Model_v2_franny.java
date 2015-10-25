@@ -1,12 +1,12 @@
-
-
 import java.util.*;
 import java.lang.StringBuilder;
 
-
-
 public class SC_Model_v2_franny
 {
+
+    /**
+     * investigate why you cannot set a MAX_PHRASE_LENGTH
+     */
 
     public static TreeMap<String, Integer> phraseTable = new TreeMap<>();
 
