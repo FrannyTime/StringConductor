@@ -17,6 +17,10 @@ public class SC_Model_v1_franny
     public static TreeMap<String, Integer> phraseTable = new TreeMap<>();
     public static final String FILE_LOCATION = "/Users/Natera/Documents/CS/SC_text.txt";
 
+
+
+    public SC_Model_v1_franny() {}
+
     public static String readFile(String location) throws FileNotFoundException
     {
         String theDocument = "";
@@ -39,7 +43,7 @@ public class SC_Model_v1_franny
         return theDocument;
     }
 
-    private static void processSentenceArray(String[] sentenceArray)
+    public void processSentenceArray(String[] sentenceArray)
     {
         int maxPhraseLength = MAX_PHRASE_LENGTH;
 
@@ -52,7 +56,7 @@ public class SC_Model_v1_franny
 
         for (phraseLength = MIN_PHRASE_LENGTH; phraseLength <= maxPhraseLength; phraseLength++)
         {
-            System.out.println(phraseLength);
+          //  System.out.println(phraseLength);
             chopSentenceArray(sentenceArray, phraseLength);
         }
     }
@@ -79,9 +83,9 @@ public class SC_Model_v1_franny
 
                     hashEntry = stringBuilder.toString();
                     addToPhraseTable(hashEntry);
-                    System.out.println(hashEntry + "\t" + phraseLength);
-                    System.out.println("success" + "\t" + successCounter);
-                    successCounter++;
+//                    System.out.println(hashEntry + "\t" + phraseLength);
+//                    System.out.println("success" + "\t" + successCounter);
+//                    successCounter++;
                 }
                 else
                 {
@@ -110,27 +114,26 @@ public class SC_Model_v1_franny
         }
     }
 
-    public static void main (String[] args) throws IOException
-    {
-        BreakIterator iterator = BreakIterator.getSentenceInstance(Locale.US);
-
-        String document = readFile(FILE_LOCATION);
-        iterator.setText(document);
-        int start = iterator.first();
-
-        for (int end = iterator.next(); end != BreakIterator.DONE; start = end, end = iterator.next())
-        {
-            String sentence = document.substring(start, end);
-            String[] sentenceArray = sentence.split("\\s+");
-            processSentenceArray(sentenceArray);
-        }
-
-        for (Map.Entry<String, Integer> entry : phraseTable.entrySet())
-        {
-            System.out.println(entry);
-        }
-        System.out.println("bananas");
-    }
+//    public static void main (String[] args) throws IOException
+//    {
+//        BreakIterator iterator = BreakIterator.getSentenceInstance(Locale.US);
+//
+//        String document = readFile(FILE_LOCATION);
+//        iterator.setText(document);
+//        int start = iterator.first();
+//
+//        for (int end = iterator.next(); end != BreakIterator.DONE; start = end, end = iterator.next())
+//        {
+//            String sentence = document.substring(start, end);
+//            String[] sentenceArray = sentence.split("\\s+");
+//            this.processSentenceArray(sentenceArray);
+//        }
+//
+//        for (Map.Entry<String, Integer> entry : phraseTable.entrySet())
+//        {
+//            System.out.println(entry);
+//        }
+//    }
 }
 
 
