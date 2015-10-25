@@ -65,7 +65,7 @@ public class SC_Controller_v1_franny
         for (Map.Entry<String, Integer> entry : model.phraseTable.entrySet())
         {
             System.out.println(entry);
-            stringBuilder.append(entry);
+            stringBuilder.append(entry + "\n");
         }
         view.runApp(args);
     }
