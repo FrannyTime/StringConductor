@@ -116,7 +116,7 @@ public class SC_View extends Application {
         //bp.setMargin(originalArea, new Insets(12, -120, 12, 12));
         //bp.setRight(originalArea);
         //bp.setPadding(new Insets(12,12,12,12));
-
+//hi
     }
 
     public static void runApp(String[] args )
