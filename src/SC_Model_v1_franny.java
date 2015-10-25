@@ -15,7 +15,9 @@ public class SC_Model_v1_franny
     public static final Integer MAX_PHRASE_LENGTH = 10;
     public static final Integer MIN_PHRASE_LENGTH = 2;
     public static TreeMap<String, Integer> phraseTable = new TreeMap<>();
-    public static final String FILE_LOCATION = "/Users/Natera/Documents/CS/SC_text.txt";
+    //public static final String FILE_LOCATION = "/Users/Natera/Documents/CS/SC_text.txt";
+    public static final String FILE_LOCATION = "/Users/danieltam/Downloads/SC_text";
+
 
 
 
