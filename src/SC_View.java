@@ -26,7 +26,7 @@ public class SC_View extends Application {
 
         BorderPane bp = new BorderPane();
 
-        Scene scene = new Scene(bp, 700, 500);
+        Scene scene = new Scene(bp, 1000, 600);
         primaryStage.setTitle("String Conductor");
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -99,15 +99,34 @@ public class SC_View extends Application {
         String myString = frannyObject.readFile(filePath);
 
         hi.setOnAction(e -> originalArea.setText(myString));
-        //originalArea.setWrapText(true);
-        bp.setMargin(originalArea, new Insets(12, -120, 12, 12));
-        bp.setRight(originalArea);
 
+        VBox vRight = new VBox();
+
+        bp.setRight(vRight);
+        vRight.setPrefSize(570,180);
+        vRight.getChildren().add(originalArea);
+        vRight.setMargin(originalArea,new Insets(12,300,12,12));
+        originalArea.setMaxWidth(100);
+        originalArea.setEditable(true);
+        //originalArea.
+        //vRight.setAlignment(Pos.CENTER_LEFT);
+        //vRight.setMargin(originalArea, new Insets(12,12,12,12));
+
+        originalArea.setWrapText(true);
+        //bp.setMargin(originalArea, new Insets(12, -120, 12, 12));
+        //bp.setRight(originalArea);
+        //bp.setPadding(new Insets(12,12,12,12));
+
+    }
+
+    public static void runApp(String[] args )
+    {
+        launch(args);
     }
 
 
     public static void main(String[] args) {
-        //launch(args);
-
+        launch(args);
     }
+
 }
