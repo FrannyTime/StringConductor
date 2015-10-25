@@ -1,6 +1,7 @@
 /**
  * Created by Natera on 10/25/15.
  */
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.BreakIterator;
@@ -41,7 +42,14 @@ public class SC_Controller_v1_franny
 
     public static void main (String[] args) throws IOException
     {
+        SC_View view = new SC_View();
+        view.runApp(args);
+    }
+
+    public String giveItDaniel(String inputFile) throws IOException
+    {
         SC_Model_v2_franny model = new SC_Model_v2_franny();
+        String returnString = new String();
 
         BreakIterator iterator = BreakIterator.getSentenceInstance(Locale.US);
 
@@ -56,10 +64,18 @@ public class SC_Controller_v1_franny
             model.processSentenceArray(sentenceArray, MAX_PHRASE_LENGTH, MIN_PHRASE_LENGTH, PHRASE_DELIMITER);
         }
 
+        StringBuilder stringBuilder = new StringBuilder();
+
+
         for (Map.Entry<String, Integer> entry : model.phraseTable.entrySet())
         {
             System.out.println(entry);
+            stringBuilder.append(entry);
         }
+
+        returnString = stringBuilder.toString();
+        
+        return returnString;
     }
 
 }
