@@ -29,7 +29,7 @@ public class SC_View extends Application {
     public void start(Stage primaryStage) throws Exception{
         //Build up main scene window and applying BorderPane layout
         BorderPane bp = new BorderPane();
-        Scene scene = new Scene(bp, 1100, 600);
+        Scene scene = new Scene(bp, 1200, 600);
         primaryStage.setTitle("String Conductor");
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -57,18 +57,18 @@ public class SC_View extends Application {
         bp.setCenter(originalArea);
         bp.setAlignment(originalArea,Pos.CENTER);
         bp.setMargin(originalArea, new Insets(12,0,12,12));
-        originalArea.setMaxSize(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE);
-        originalArea.setMinSize(400, 550);
+        originalArea.setMaxSize(500, Region.USE_COMPUTED_SIZE);
+        originalArea.setMinSize(200, 250);
         originalArea.setScaleShape(true);
         originalArea.setWrapText(true);
 
         //Creates the filtered field area at right of BorderPane
         TextArea filteredArea = new TextArea();
         bp.setRight(filteredArea);
-        bp.setAlignment(filteredArea, Pos.CENTER_RIGHT);
+        bp.setAlignment(filteredArea, Pos.CENTER);
         bp.setMargin(filteredArea, new Insets(12,12,12,12));
-        filteredArea.setMaxSize(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE);
-        filteredArea.setMinSize(400, 550);
+        filteredArea.setMaxSize(470, Region.USE_COMPUTED_SIZE);
+        filteredArea.setMinSize(200, 250);
         filteredArea.setScaleShape(true);
         filteredArea.setWrapText(true);
 
