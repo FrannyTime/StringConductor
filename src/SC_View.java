@@ -37,9 +37,9 @@ public class SC_View extends Application {
 
         //Initializing MenuBar
         MenuBar menuBar = new MenuBar();
-        final Menu menu1 = new Menu("File");
-        final Menu menu2 = new Menu("Options");
-        final Menu menu3 = new Menu("Help");
+        Menu menu1 = new Menu("File");
+        Menu menu2 = new Menu("Options");
+        Menu menu3 = new Menu("Help");
 
         //Add import menu item to under File
         MenuItem importBut = new MenuItem("Import");
@@ -66,7 +66,7 @@ public class SC_View extends Application {
         TextArea filteredArea = new TextArea();
         bp.setRight(filteredArea);
         bp.setAlignment(filteredArea, Pos.CENTER);
-        bp.setMargin(filteredArea, new Insets(12,12,12,12));
+        bp.setMargin(filteredArea, new Insets(12,12,12, 12));
         filteredArea.setMaxSize(470, Region.USE_COMPUTED_SIZE);
         filteredArea.setMinSize(200, 250);
         filteredArea.setScaleShape(true);
@@ -168,7 +168,7 @@ public class SC_View extends Application {
         //Sets action of import button and returns path directory
         importBut.setOnAction(e -> {
 
-            importFile(primaryStage);
+            //importFile(primaryStage);
             String x = new String();
             try {
                 x = franny.giveItDaniel(importFile(primaryStage));
