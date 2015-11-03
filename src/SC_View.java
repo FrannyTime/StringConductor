@@ -138,13 +138,23 @@ public class SC_View extends Application {
         Text pLengthLabel = new Text("Phrase Length:");
         pLengthLabel.setFont(Font.font("System", 24));
 
-        //creates the phrase length input area
-        TextField pLengthInput = new TextField();
-        pLengthInput.setPrefWidth(27);
+        //creates the phrase length drop menu
+        MenuButton pLengthMenu = new MenuButton("Select");
+        MenuItem optionFour = new MenuItem("4");
+        MenuItem optionFive = new MenuItem("5");
+        MenuItem optionSix = new MenuItem("6");
+        MenuItem optionSeven = new MenuItem("7");
+        MenuItem optionEight = new MenuItem("8");
+        MenuItem optionNine = new MenuItem("9");
+        MenuItem optionTen = new MenuItem("10");
+        pLengthMenu.getItems().addAll(optionFour, optionFive, optionSix, optionSeven,
+                                      optionEight, optionNine, optionTen);
+
+        //pLengthInput.setPrefWidth(27);
 
         //Creates the phrase length HBox
         HBox pLengthBox = new HBox();
-        pLengthBox.getChildren().addAll(pLengthLabel, pLengthInput);
+        pLengthBox.getChildren().addAll(pLengthLabel, pLengthMenu);
 
         //Creates the clear filters and apply button
         Button cFiltersBut = new Button("Clear filters");
@@ -166,6 +176,16 @@ public class SC_View extends Application {
         //Actions of all buttons
 
         //Sets action of import button and returns path directory
+        applyBut.setOnAction(e -> {
+            //Creates an alert message dialog
+            Alert importAlert = new Alert(Alert.AlertType.ERROR);
+            importAlert.setTitle("An error has occurred");
+            importAlert.setHeaderText("Importing failed!");
+            importAlert.setContentText("Please check the file format!");
+            importAlert.showAndWait();
+
+        });
+
         importBut.setOnAction(e -> {
 
             //importFile(primaryStage);
