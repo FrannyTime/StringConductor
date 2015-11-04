@@ -25,6 +25,14 @@ public class SC_View extends Application {
 
     SC_Controller_v1_franny franny = new SC_Controller_v1_franny();
 
+    boolean arialBool;
+    boolean georgiaBool;
+    boolean size12Bool;
+    boolean size14Bool;
+    boolean size16Bool;
+    boolean size20Bool;
+    TextArea originalArea = new TextArea();
+
     @Override
     public void start(Stage primaryStage) throws Exception{
         //Build up main scene window and applying BorderPane layout
@@ -35,7 +43,7 @@ public class SC_View extends Application {
         primaryStage.show();
 
 
-        //Initializing MenuBar
+        //Creating the MenuBar
         MenuBar menuBar = new MenuBar();
         Menu menu1 = new Menu("File");
         Menu menu2 = new Menu("Options");
@@ -53,7 +61,7 @@ public class SC_View extends Application {
 
         //Creates the original text area at center of BorderPane
 
-        TextArea originalArea = new TextArea();
+        //TextArea originalArea = new TextArea();
         bp.setCenter(originalArea);
         bp.setAlignment(originalArea,Pos.CENTER);
         bp.setMargin(originalArea, new Insets(12,0,12,12));
@@ -61,6 +69,8 @@ public class SC_View extends Application {
         originalArea.setMinSize(200, 250);
         originalArea.setScaleShape(true);
         originalArea.setWrapText(true);
+
+
 
         //Creates the filtered field area at right of BorderPane
         TextArea filteredArea = new TextArea();
@@ -90,9 +100,9 @@ public class SC_View extends Application {
 
         //Creates the fonts drop menu
         MenuButton fontsMenu = new MenuButton("Default");
-        MenuItem arial = new MenuItem("Arial");
-        MenuItem NTR = new MenuItem("New Times Roman");
-        fontsMenu.getItems().addAll(arial, NTR);
+        MenuItem arialBut = new MenuItem("Arial");
+        MenuItem georgiaBut = new MenuItem("Georgia");
+        fontsMenu.getItems().addAll(arialBut, georgiaBut);
 
         //Creates the fonts HBox
         HBox fontBox = new HBox();
@@ -106,9 +116,11 @@ public class SC_View extends Application {
 
         //Creates the font size drop menu
         MenuButton fontSizeMenu = new MenuButton("12");
-        MenuItem size1 = new MenuItem("14");
-        MenuItem size2 = new MenuItem("16");
-        fontSizeMenu.getItems().addAll(size1, size2);
+        MenuItem size12But = new MenuItem("12");
+        MenuItem size14But = new MenuItem("14");
+        MenuItem size16But = new MenuItem("16");
+        MenuItem size20But = new MenuItem("20");
+        fontSizeMenu.getItems().addAll(size12But, size14But, size16But, size20But);
 
         //Creates the font size HBox
         HBox fontSizeBox = new HBox();
@@ -175,14 +187,63 @@ public class SC_View extends Application {
 
         //Actions of all buttons
 
-        //Sets action of import button and returns path directory
-        applyBut.setOnAction(e -> {
+        arialBut.setOnAction(e -> {
+            fontsMenu.setText("Arial");
+            setAllFontsFalse();
+            arialBool = true;
+            applyFont();
+        });
+
+        georgiaBut.setOnAction(e -> {
+            fontsMenu.setText("Georgia");
+            setAllFontsFalse();
+            georgiaBool = true;
+            applyFont();
+        });
+
+        size12But.setOnAction(e -> {
+            fontSizeMenu.setText("12");
+            setAllSizesFalse();
+            size12Bool = true;
+            applyFont();
+        });
+
+        size14But.setOnAction(e -> {
+            fontSizeMenu.setText("14");
+            setAllSizesFalse();
+            size14Bool = true;
+            applyFont();
+        });
+
+        size16But.setOnAction(e -> {
+            fontSizeMenu.setText("16");
+            setAllSizesFalse();
+            size16Bool = true;
+            applyFont();
+        });
+
+        size20But.setOnAction(e -> {
+            fontSizeMenu.setText("20");
+            setAllSizesFalse();
+            size20Bool = true;
+            applyFont();
+        });
+
+        cFiltersBut.setOnAction(e -> {
             //Creates an alert message dialog
             Alert importAlert = new Alert(Alert.AlertType.ERROR);
             importAlert.setTitle("An error has occurred");
             importAlert.setHeaderText("Importing failed!");
             importAlert.setContentText("Please check the file format!");
             importAlert.showAndWait();
+        });
+
+        //Sets action of apply button and returns path directory
+        applyBut.setOnAction(e -> {
+
+            String x = "-fx-text-fill: red;";
+
+            originalArea.setStyle(x + "-fx-font-size: 30px;" + "-fx-font-family: Courier New;");
 
         });
 
@@ -202,6 +263,44 @@ public class SC_View extends Application {
         });
     }
 
+    public void setAllFontsFalse(){
+        arialBool = false;
+        georgiaBool = false;
+    }
+
+    public void setAllSizesFalse(){
+        size12Bool = false;
+        size14Bool = false;
+        size16Bool = false;
+        size20Bool = false;
+    }
+
+    public void applyFont(){
+        String size = "";
+        String font = "";
+
+        if(arialBool == true){
+            font = "-fx-font-family: Arial;";
+        }
+        else if(georgiaBool == true){
+            font = "-fx-font-family: Georgia;";
+        }
+
+        if(size12Bool == true){
+            size = "-fx-font-size: 12px;";
+        }
+        else if(size14Bool == true){
+            size = "-fx-font-size: 14px;";
+        }
+        else if(size16Bool == true){
+            size = "-fx-font-size: 16px;";
+        }
+        else if(size20Bool == true){
+            size = "-fx-font-size: 20px;";
+        }
+
+        originalArea.setStyle(font + size);
+    }
 
     public String importFile(Stage primaryStage){
         FileChooser fileChooser = new FileChooser();
