@@ -103,11 +103,11 @@ public class Test_SC_View
     public static void main (String args[])
     {
         // show main window
-        launch(args);
+
     }
 
     public static void runApp(String args[])
     {
-        launch(args);
+
     }
 }
