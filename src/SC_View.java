@@ -252,7 +252,7 @@ public class SC_View extends Application {
             //importFile(primaryStage);
             String x = new String();
             try {
-                x = franny.giveItDaniel(importFile(primaryStage));
+                x = franny.getDataStructure(importFile(primaryStage));
                filteredArea.setText(x);
                 //originalArea.setText(importFile(primaryStage));
             }

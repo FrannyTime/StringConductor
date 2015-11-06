@@ -70,7 +70,7 @@ public class SC_Controller_v1_franny
         view.runApp(args);
     }
 
-    public String giveItDaniel(String inputFileLocation) throws IOException
+    public String getDataStructure(String inputFileLocation) throws IOException
     {
         SC_Model_v2_franny model = new SC_Model_v2_franny();
         String returnString = new String();
