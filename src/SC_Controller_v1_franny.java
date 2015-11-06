@@ -70,37 +70,38 @@ public class SC_Controller_v1_franny
         view.runApp(args);
     }
 
-//    public String giveItDaniel(String inputFileLocation) throws IOException
-//    {
-//        SC_Model_v2_franny model = new SC_Model_v2_franny();
-//        String returnString = new String();
-//
-//        BreakIterator iterator = BreakIterator.getSentenceInstance(Locale.US);
-//
-//        String document = readFile(inputFileLocation);
-//        iterator.setText(document);
-//        int start = iterator.first();
-//
-//        for (int end = iterator.next(); end != BreakIterator.DONE; start = end, end = iterator.next())
-//        {
-//            String sentence = document.substring(start, end);
-//            String[] sentenceArray = sentence.split("\\s+");
-//            model.processSentenceArray(sentenceArray, MAX_PHRASE_LENGTH, MIN_PHRASE_LENGTH, PHRASE_DELIMITER);
-//        }
-//
-//        StringBuilder stringBuilder = new StringBuilder();
-//
-//
-//        for (Map.Entry<String, Integer> entry : model.phraseTable.entrySet())
-//        {
-//            System.out.println(entry);
-//            stringBuilder.append(entry);
-//        }
-//
-//        returnString = stringBuilder.toString();
-//
-//        return returnString;
-//        //asdfadsf
-//    }
+    public String giveItDaniel(String inputFileLocation) throws IOException
+    {
+        SC_Model_v2_franny model = new SC_Model_v2_franny();
+        String returnString = new String();
+
+        BreakIterator iterator = BreakIterator.getSentenceInstance(Locale.US);
+
+        String document = readFile(inputFileLocation);
+        iterator.setText(document);
+        int start = iterator.first();
+
+        for (int end = iterator.next(); end != BreakIterator.DONE; start = end, end = iterator.next())
+        {
+            String sentence = document.substring(start, end);
+            String[] sentenceArray = sentence.split("\\s+");
+            model.processSentenceArray(sentenceArray, MAX_PHRASE_LENGTH, MIN_PHRASE_LENGTH, PHRASE_DELIMITER);
+        }
+
+        StringBuilder stringBuilder = new StringBuilder();
+
+
+        for (Map.Entry<String, Integer> entry : model.phraseTable.entrySet())
+        {
+            System.out.println(entry);
+            String s = entry.getValue() + "\t" + entry.getKey();
+            stringBuilder.append(s + "\n");
+        }
+
+        returnString = stringBuilder.toString();
+
+        return returnString;
+
+    }
 
 }
