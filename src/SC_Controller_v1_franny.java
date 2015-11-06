@@ -68,6 +68,7 @@ public class SC_Controller_v1_franny
             stringBuilder.append(s);
         }
         view.runApp(args);
+        model.printArrayList(10);
     }
 
     public String getDataStructure(String inputFileLocation) throws IOException
@@ -102,4 +103,5 @@ public class SC_Controller_v1_franny
         return returnString;
 
     }
+
 }
