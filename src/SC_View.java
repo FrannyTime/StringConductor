@@ -69,7 +69,7 @@ public class SC_View extends Application {
         originalArea.setMaxSize(500, Region.USE_COMPUTED_SIZE);
         originalArea.setMinSize(200, 250);
         originalArea.setScaleShape(true);
-        originalArea.setWrapText(true);
+        //originalArea.setWrapText(true);
 
 
 
@@ -80,7 +80,7 @@ public class SC_View extends Application {
         filteredArea.setMaxSize(470, Region.USE_COMPUTED_SIZE);
         filteredArea.setMinSize(200, 250);
         filteredArea.setScaleShape(true);
-        filteredArea.setWrapText(true);
+        //filteredArea.setWrapText(true);
 
         //Creates VBox for left of BorderPane
         VBox leftPane = new VBox();
@@ -253,7 +253,7 @@ public class SC_View extends Application {
             String x = new String();
             try {
                 x = franny.giveItDaniel(importFile(primaryStage));
-               originalArea.setText(x);
+               filteredArea.setText(x);
                 //originalArea.setText(importFile(primaryStage));
             }
             catch (IOException IOE){
