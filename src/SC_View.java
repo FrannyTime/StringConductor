@@ -32,6 +32,7 @@ public class SC_View extends Application {
     boolean size16Bool;
     boolean size20Bool;
     TextArea originalArea = new TextArea();
+    TextArea filteredArea = new TextArea();
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -73,7 +74,6 @@ public class SC_View extends Application {
 
 
         //Creates the filtered field area at right of BorderPane
-        TextArea filteredArea = new TextArea();
         bp.setRight(filteredArea);
         bp.setAlignment(filteredArea, Pos.CENTER);
         bp.setMargin(filteredArea, new Insets(12,12,12, 12));
@@ -300,13 +300,14 @@ public class SC_View extends Application {
         }
 
         originalArea.setStyle(font + size);
+        filteredArea.setStyle(font + size);
     }
 
     public String importFile(Stage primaryStage){
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Browse File");
         final File file = fileChooser.showOpenDialog(primaryStage);
-        //System.out.println("getCurrentDirectory(): " + file.getPath());
+        System.out.println("getCurrentDirectory(): " + file.getPath());
         return file.getPath();
     }
 
