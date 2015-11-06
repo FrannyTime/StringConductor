@@ -44,7 +44,6 @@ public class SC_Controller_v1_franny
     {
         SC_View view = new SC_View();
         SC_Model_v2_franny model = new SC_Model_v2_franny();
-        String returnString = new String();
 
         BreakIterator iterator = BreakIterator.getSentenceInstance(Locale.US);
 
@@ -62,10 +61,11 @@ public class SC_Controller_v1_franny
         StringBuilder stringBuilder = new StringBuilder();
 
 
-        for (Map.Entry<String, Integer> entry : model.phraseTable.entrySet())
+        for (Map.Entry<String, Integer> entry : model.frequencyTable.entrySet())
         {
             System.out.println(entry);
-            stringBuilder.append(entry + "\n");
+            String s = entry.getValue() + "\t" + entry.getKey();
+            stringBuilder.append(s);
         }
         view.runApp(args);
     }
@@ -90,12 +90,11 @@ public class SC_Controller_v1_franny
 
         StringBuilder stringBuilder = new StringBuilder();
 
-
-        for (Map.Entry<String, Integer> entry : model.phraseTable.entrySet())
+        for (Map.Entry<String, Integer> entry : model.frequencyTable.entrySet())
         {
             System.out.println(entry);
             String s = entry.getValue() + "\t" + entry.getKey();
-            stringBuilder.append(s + "\n");
+            stringBuilder.append(s);
         }
 
         returnString = stringBuilder.toString();
@@ -103,5 +102,4 @@ public class SC_Controller_v1_franny
         return returnString;
 
     }
-
 }
