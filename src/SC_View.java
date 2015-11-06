@@ -16,7 +16,7 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import java.io.IOException;
-
+//hi
 public class SC_View extends Application {
 
     SC_Controller_v1_franny franny = new SC_Controller_v1_franny();
