@@ -6,17 +6,16 @@ import java.util.Map;
 import java.util.Scanner;
 
 /**
- * Created by Natera on 11/10/15.
+ * Created by PeteCurtis on 11/10/15.
  */
-public class TestModel_v2
-{
-    public static final Integer MAX_PHRASE_LENGTH = 11;
-    public static final Integer MIN_PHRASE_LENGTH = 4;
-    private static final String PHRASE_DELIMITER = " ";
+public class TestModel_v2_PC {
+        public static final Integer MAX_PHRASE_LENGTH = 11;
+        public static final Integer MIN_PHRASE_LENGTH = 4;
+        private static final String PHRASE_DELIMITER = " ";
 
-    public static String theDocument = "";
+        public static String theDocument = "";
 
-    public static final String FILE_LOCATION = "/Users/PeteCurtis/Desktop/stuff.txt";
+        public static final String FILE_LOCATION = "/Users/PeteCurtis/Desktop/stuff.txt";
 
 
     public static String readFile(String location) throws FileNotFoundException
@@ -68,8 +67,8 @@ public class TestModel_v2
 //            System.out.println(entry);
             String s = entry.getValue() + "\t" + entry.getKey();
             System.out.println(s);
-           // stringBuilder.append(s);
+            // stringBuilder.append(s);
         }
-       // view.runApp(args);
-    }
-}
+        // view.runApp(args);
+    }//method
+}//class
