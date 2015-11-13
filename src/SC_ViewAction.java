@@ -1,4 +1,6 @@
 import javafx.application.Application;
+import javafx.scene.control.Alert;
+import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
@@ -18,9 +20,20 @@ public class SC_ViewAction {
     boolean size14Bool;
     boolean size16Bool;
     boolean size20Bool;
+    boolean optionFourBool;
+    boolean optionFiveBool;
+    boolean optionSixBool;
+    boolean optionSevenBool;
+    boolean optionEightBool;
+    boolean optionNineBool;
+    boolean optionTenBool;
+    boolean searchHaveValue = false;
+    boolean pLengthHaveValue = false;
+
     TextArea originalArea = new TextArea();
     TextArea filteredArea = new TextArea();
     TextField searchInput = new TextField();
+    MenuButton pLengthMenu = new MenuButton("Select");
 
     public void setAllFontsFalse(){
         arialBool = false;
@@ -33,6 +46,16 @@ public class SC_ViewAction {
         size13Bool = false;
         size16Bool = false;
         size20Bool = false;
+    }
+
+    public void setAllLengthFalse(){
+        boolean optionFourBool = false;
+        boolean optionFiveBool = false;
+        boolean optionSixBool = false;
+        boolean optionSevenBool = false;
+        boolean optionEightBool = false;
+        boolean optionNineBool = false;
+        boolean optionTenBool = false;
     }
 
     public void applyFont(){
@@ -67,10 +90,31 @@ public class SC_ViewAction {
     }
 
     public void clearFilter(){
-        //setAllFontsFalse();
-        //setAllSizesFalse();
+        searchHaveValue = false;
+        pLengthHaveValue = false;
         searchInput.setText("");
-        //applyFont();
+        pLengthMenu.setText("Select");
+    }
+
+    public String getInputField(){
+        return searchInput.getText();
+    }
+
+    public void isSearchEmpty(){
+        if(searchInput.getText().length() > 0){
+            searchHaveValue = true;
+        }
+    }
+
+    public void checkFilters(){
+        isSearchEmpty();
+        if(((searchHaveValue == false) && (pLengthHaveValue == false)) || ((searchHaveValue == true) && (pLengthHaveValue == true)) ){
+            Alert importAlert = new Alert(Alert.AlertType.ERROR);
+            importAlert.setTitle("An error has occurred");
+            importAlert.setHeaderText("Select correctly!");
+            importAlert.setContentText("Please use only either \"Search\" or \"Phrase Length\"\nPick one only!");
+            importAlert.showAndWait();
+        }
     }
 
     public String importFile(Stage primaryStage){
