@@ -213,6 +213,41 @@ public class SC_View extends Application {
 
         optionFour.setOnAction(e -> {
             pLengthMenu.setText("4");
+            va.setAllLengthFalse();
+            va.optionFourBool = true;
+        });
+
+        optionFive.setOnAction(e -> {
+            pLengthMenu.setText("5");
+            va.setAllLengthFalse();
+            va.optionFiveBool = true;
+        });
+
+        optionSix.setOnAction(e -> {
+            pLengthMenu.setText("6");
+            va.setAllLengthFalse();
+            va.optionSixBool = true;
+        });
+
+        optionSeven.setOnAction(e -> {
+            pLengthMenu.setText("7");
+            va.setAllLengthFalse();
+            va.optionSevenBool = true;
+        });
+        optionEight.setOnAction(e -> {
+            pLengthMenu.setText("8");
+            va.setAllLengthFalse();
+            va.optionEightBool = true;
+        });
+        optionNine.setOnAction(e -> {
+            pLengthMenu.setText("9");
+            va.setAllLengthFalse();
+            va.optionNineBool = true;
+        });
+        optionTen.setOnAction(e -> {
+            pLengthMenu.setText("10");
+            va.setAllLengthFalse();
+            va.optionTenBool = true;
         });
 
         cFiltersBut.setOnAction(e -> {
@@ -221,12 +256,9 @@ public class SC_View extends Application {
 
         //Sets action of apply button and returns path directory
         applyBut.setOnAction(e -> {
-            //Creates an alert message dialog
-            Alert importAlert = new Alert(Alert.AlertType.ERROR);
-            importAlert.setTitle("An error has occurred");
-            importAlert.setHeaderText("Importing failed!");
-            importAlert.setContentText("Please check the file format!");
-            importAlert.showAndWait();
+            va.originalArea.setText(va.getInputField());
+            va.isSearchEmpty();
+            va.checkFilters();
         });
 
         importBut.setOnAction(e -> {
