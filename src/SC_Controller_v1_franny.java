@@ -70,7 +70,7 @@ public class SC_Controller_v1_franny
         view.runApp(args);
     }
 
-//    public ArrayList<String> getWordCountFreq(Integer wordCount)
+//    public static ArrayList<String> getWordCountFreq(Integer wordCount)
 //    {
 //        String returnString = new String();
 //        StringBuilder stringBuilder = new StringBuilder();
@@ -81,8 +81,10 @@ public class SC_Controller_v1_franny
 //
 //        return returnString;
 //    }
+//
+//    public
 
-    public String getImportResults(String phrase) throws IOException
+    public static String getImportResults(String phrase) throws IOException
     {
         String returnString = new String();
         StringBuilder stringBuilder = new StringBuilder();
@@ -90,7 +92,7 @@ public class SC_Controller_v1_franny
         for (Map.Entry<String, Integer> entry : model.frequencyTable.entrySet())
         {
             System.out.println(entry);
-            String s = entry.getValue() + "\t" + entry.getKey();
+            String s = entry.getValue() + "\t" + entry.getKey() + "\n";
             stringBuilder.append(s);
         }
 
