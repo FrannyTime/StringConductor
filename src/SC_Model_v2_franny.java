@@ -11,11 +11,27 @@ public class SC_Model_v2_franny
     public static String getPhraseFreqResults(String phrase)
     {
         String returnString = new String();
-        Integer count;
-        String test = new String();
-        count = frequencyTable.get(phrase);
-        test = String.valueOf(count);
-        returnString = phrase + "\t" + test;
+
+        try
+        {
+            if (frequencyTable.containsKey(phrase))
+            {
+                Integer count;
+                String test = new String();
+                count = frequencyTable.get(phrase);
+                test = String.valueOf(count);
+                returnString = phrase + "\t " + test;
+            }
+            else
+            {
+                returnString = phrase + "\t " + "0";
+            }
+        }
+        catch (NullPointerException e)
+        {
+            System.out.println("null error");
+        }
+
         return returnString;
     }
 
