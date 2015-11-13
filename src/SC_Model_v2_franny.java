@@ -4,12 +4,7 @@ import java.lang.StringBuilder;
 public class SC_Model_v2_franny
 {
 
-    /**
-     * investigate why you cannot set a MAX_PHRASE_LENGTH
-     */
-
     public static TreeMap<String, Integer> frequencyTable = new TreeMap<>();
-
 
     public SC_Model_v2_franny() {}
 
@@ -19,7 +14,9 @@ public class SC_Model_v2_franny
 
         if (frequencyTable.containsKey(phrase))
         {
+            System.out.println(phrase);
             returnString =  frequencyTable.get(phrase) + "\t" + phrase;
+            System.out.println(returnString);
         }
         else
         {
@@ -88,12 +85,7 @@ public class SC_Model_v2_franny
                             phraseStartPosition, phraseLength, k);
 
                     addToFrequencyTable(hashEntry);
-                    //addToWordCountTable(phraseLength, hashEntry)
-                    /*
-                    HashMap<String phrase, Pair<Integer wordCount, Integer frequency>>
-                     */
                 }
-
                 else
                 {
                     break;
@@ -118,8 +110,6 @@ public class SC_Model_v2_franny
             frequencyTable.put(hashEntry, 1);
         }
     }
-
-
 }
 
 
