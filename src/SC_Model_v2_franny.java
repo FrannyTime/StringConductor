@@ -21,6 +21,10 @@ public class SC_Model_v2_franny
         {
             returnString =  frequencyTable.get(phrase) + "\t" + phrase;
         }
+        else
+        {
+            returnString = "phrase not found";
+        }
 
         return returnString;
     }
