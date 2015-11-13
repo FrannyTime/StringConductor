@@ -8,7 +8,8 @@ public class SC_Model_v2_franny
      * investigate why you cannot set a MAX_PHRASE_LENGTH
      */
 
-    public static TreeMap<String, Integer> phraseTable = new TreeMap<>();
+    public static TreeMap<String, Integer> frequencyTable = new TreeMap<>();
+
 
     public SC_Model_v2_franny() {}
 
@@ -24,14 +25,20 @@ public class SC_Model_v2_franny
 
         int phraseLength;
 
-        /*
-        remove the period
-         */
+        String s = new String();
+        s = sentenceArray[sentenceArray.length - 1];
+        s = s.substring(0, s.length() - 1);
+        sentenceArray[sentenceArray.length - 1] = s;
 
         for (phraseLength = MIN_PHRASE_LENGTH; phraseLength <= maxPhraseLength; phraseLength++)
         {
             chopSentenceArray(sentenceArray, phraseLength, PHRASE_DELIMITER);
         }
+    }
+
+    public static String removeLastChar(String str)
+    {
+        return str.substring(0,str.length()-1);
     }
 
     private static String addTheWords(String[] sentenceArray, StringBuilder stringBuilder, String PHRASE_DELIMITER,
@@ -44,7 +51,7 @@ public class SC_Model_v2_franny
             stringBuilder.append(sentenceArray[k] + PHRASE_DELIMITER);
         }
 
-        hashEntry = "\n" + stringBuilder.toString() + "\n";
+        hashEntry = stringBuilder.toString();
         return hashEntry;
     }
 
@@ -64,8 +71,13 @@ public class SC_Model_v2_franny
                     String hashEntry = addTheWords(sentenceArray, stringBuilder, PHRASE_DELIMITER,
                             phraseStartPosition, phraseLength, k);
 
-                    addToPhraseTable(hashEntry, k);
+                    addToFrequencyTable(hashEntry);
+                    //addToWordCountTable(phraseLength, hashEntry)
+                    /*
+                    HashMap<String phrase, Pair<Integer wordCount, Integer frequency>>
+                     */
                 }
+
                 else
                 {
                     break;
@@ -75,22 +87,23 @@ public class SC_Model_v2_franny
             {
                 System.out.println(aiobe);
             }
-
             phraseStartPosition++;
         }
     }
 
-    private static void addToPhraseTable(String hashEntry, int phraseLength)
+    private static void addToFrequencyTable(String hashEntry)
     {
-        if (phraseTable.containsKey(hashEntry))
+        if (frequencyTable.containsKey(hashEntry))
         {
-            phraseTable.put(hashEntry, phraseTable.get(hashEntry) + 1);
+            frequencyTable.put(hashEntry, frequencyTable.get(hashEntry) + 1);
         }
         else
         {
-            phraseTable.put(hashEntry, 1);
+            frequencyTable.put(hashEntry, 1);
         }
     }
+
+
 }
 
 
