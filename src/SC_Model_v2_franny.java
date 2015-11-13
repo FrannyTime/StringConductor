@@ -15,8 +15,7 @@ public class SC_Model_v2_franny
         String test = new String();
         count = frequencyTable.get(phrase);
         test = String.valueOf(count);
-        System.out.println(phrase + "\t" + test);
-
+        returnString = phrase + "\t" + test;
         return returnString;
     }
 
