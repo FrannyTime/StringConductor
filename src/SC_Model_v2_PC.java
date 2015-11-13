@@ -10,7 +10,6 @@ import java.lang.StringBuilder;
 
 public class SC_Model_v2_PC {
 
-//    public static TreeMap<String, Pair<Integer,Integer>> phraseTable = new TreeMap<>();
     public static TreeMap<String, DALPhraseObject> phraseTable = new TreeMap<>();
 
     public static void processSentenceArray(String[] sentenceArray, int MAX_PHRASE_LENGTH,
@@ -82,40 +81,43 @@ public class SC_Model_v2_PC {
     {
         if (!phraseTable.containsKey(phrase))
         {
-//            DALPhraseObject po = new DALPhraseObject(phrase,phraseLength);
             phraseTable.put(phrase, new DALPhraseObject(phrase, phraseLength));
         }
         //if the value already exists in the tree
             phraseTable.get(phrase).incrementFrequency();
     }//method
 
+//Not being used Franny has it done already
+//    public ArrayList<String> getPhraseFreqResults(String phrase){
+//        return new ArrayList<String>();
+//    }//method
 
-    public ArrayList<String> getPhraseFreqResults(String phrase){
-        return new ArrayList<String>();
-    }//method
-
+    /**
+     * public accessor method for to get the phrases of length "numberOfWordsFilter".
+     *
+     * @param numberOfWordsFilter
+     * @return an Array of Strings
+     */
     public static ArrayList<String> getWordCountResults(Integer numberOfWordsFilter){
         return filterApplier(numberOfWordsFilter);
     }//method
 
     /**
-     * This method returns the number of words in an array of Strings
-     * Startings with
+     * This method returns an arry with the correct phrases of the right phrase length.
      * @param numberOfWordsFilter is the number of words in phrase
      * @return
      */
     private static ArrayList<String> filterApplier(Integer numberOfWordsFilter){
+
         //return values in a collection
         Collection<DALPhraseObject> po = phraseTable.values();
+
         //save the values in an ArrayList<String>
         ArrayList<DALPhraseObject> PhraseObjectArrayList = new ArrayList<>();
         PhraseObjectArrayList.addAll(po);
 
-        //remove all Phrase objects that do not match numberOfWordsFilter
-        //if PhraseObjects match numberOfWordsFilter save them
         ArrayList<DALPhraseObject> filteredPhraseObjects = new ArrayList<>();
-        System.out.println("\n"+"All objects");
-
+        //Only save PhraseObjects if they match numberOfWordsFilter.
         for(DALPhraseObject tempPhraseObject: PhraseObjectArrayList){
             if(tempPhraseObject.getNumberOfWords()==numberOfWordsFilter){
                 //saveFiltered values
@@ -126,7 +128,7 @@ public class SC_Model_v2_PC {
         //Sort the ArrayList by frequency
         filteredPhraseObjects.sort(new DALPhraseFrequencyComparator());
 
-//        Translate the ArrayList<PhraseObjects> into ArrayList<Strings>
+        //Translate the ArrayList<PhraseObjects> into ArrayList<Strings>
         ArrayList<String> filteredPhraseStrings = new ArrayList<>();
         String s ="Phrase Length"+"\t \t"+"Frequency"+"\t \t" + "Phrase"+"\n";
         filteredPhraseStrings.add(s);
@@ -135,11 +137,12 @@ public class SC_Model_v2_PC {
             s = tempPhraseObject.getNumberOfWords() + "\t \t"+
                 tempPhraseObject.getFrequency() + "\t \t" +
                 tempPhraseObject.getPhrase() +"\n";
+            System.out.println(s);
             filteredPhraseStrings.add(s);
-            }//for
+        }//for
 
-            //return the sorted ArrayList of Strings
+        //return the sorted ArrayList of Strings
         return filteredPhraseStrings;
-    }//class
+    }//method
 
 }//class
