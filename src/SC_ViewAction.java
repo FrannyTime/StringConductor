@@ -14,6 +14,7 @@ public class SC_ViewAction {
     boolean arialBool;
     boolean georgiaBool;
     boolean size12Bool;
+    boolean size13Bool;
     boolean size14Bool;
     boolean size16Bool;
     boolean size20Bool;
@@ -29,6 +30,7 @@ public class SC_ViewAction {
     public void setAllSizesFalse(){
         size12Bool = false;
         size14Bool = false;
+        size13Bool = false;
         size16Bool = false;
         size20Bool = false;
     }
@@ -46,6 +48,9 @@ public class SC_ViewAction {
 
         if(size12Bool == true){
             size = "-fx-font-size: 12px;";
+        }
+        else if(size13Bool == true){
+            size = "-fx-font-size: 13px;";
         }
         else if(size14Bool == true){
             size = "-fx-font-size: 14px;";
