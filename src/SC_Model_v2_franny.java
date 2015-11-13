@@ -8,20 +8,14 @@ public class SC_Model_v2_franny
 
     public SC_Model_v2_franny() {}
 
-    public String getPhraseFreqResults(String phrase)
+    public static String getPhraseFreqResults(String phrase)
     {
         String returnString = new String();
-
-        if (frequencyTable.containsKey(phrase))
-        {
-            System.out.println(phrase);
-            returnString =  frequencyTable.get(phrase) + "\t" + phrase;
-            System.out.println(returnString);
-        }
-        else
-        {
-            returnString = "phrase not found";
-        }
+        Integer count;
+        String test = new String();
+        count = frequencyTable.get(phrase);
+        test = String.valueOf(count);
+        System.out.println(phrase + "\t" + test);
 
         return returnString;
     }
@@ -83,6 +77,8 @@ public class SC_Model_v2_franny
 
                     String hashEntry = addTheWords(sentenceArray, stringBuilder, PHRASE_DELIMITER,
                             phraseStartPosition, phraseLength, k);
+
+                    hashEntry = removeLastChar(hashEntry);
 
                     addToFrequencyTable(hashEntry);
                 }
