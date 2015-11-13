@@ -58,16 +58,24 @@ public class DALTestPhraseObjectTreeComparator {
             }
 
 
-/**
+/***/
             //test a length 4 phrase
             ArrayList<String> bob = new ArrayList<>();
             bob = SC_Model_v2_PC.getWordCountResults(4);
- */
+
+            for(String s: bob)
+            {
+                System.out.print(s);
+            }
+/**
+
             //return all PhraseObjects from TreeMap & store them in an ArrayList<DALPHraseObjects>
             Collection<DALPhraseObject> po = model.phraseTable.values();
             ArrayList<DALPhraseObject> DALPhraseObjectArrayList = new ArrayList<>();
             DALPhraseObjectArrayList.addAll(po);
+ */
 
+/**
             //sort and print DALPhraseObjects by phrase length
             DALPhraseObjectArrayList.sort(new DALPhraseComparator());
             for(DALPhraseObject poo: DALPhraseObjectArrayList){
@@ -77,12 +85,13 @@ public class DALTestPhraseObjectTreeComparator {
             }
             //print blank line
             System.out.println("");
-
-
+ */
+ /**
             //sort and print by frequency
             String s = null;
             DALPhraseObjectArrayList.sort(new DALPhraseWordCountComparator());
-
+  */
+ /**
             System.out.print("Frequency"+"\t  " + "NumberOfWords"+"\t" +"Phrase"+"\n");
             for(DALPhraseObject poo: DALPhraseObjectArrayList){
 //                System.out.print(poo.getNumberOfWords());
@@ -95,7 +104,8 @@ public class DALTestPhraseObjectTreeComparator {
             }
             //print blank line
             System.out.println("");
-
+  */
+ /**
             //sort and print by word count comparator
             DALPhraseObjectArrayList.sort(new DALPhraseWordCountComparator());
             for(DALPhraseObject poo: DALPhraseObjectArrayList){
@@ -105,8 +115,8 @@ public class DALTestPhraseObjectTreeComparator {
             }
             //print blank line
             System.out.println("");
-
-
+  */
+ /**
 //            StringBuilder stringBuilder = new StringBuilder();
 
 //            for (Map.Entry<String, Integer> entry : model.phraseTable.entrySet())
@@ -149,6 +159,8 @@ public class DALTestPhraseObjectTreeComparator {
 //
 //            return returnString;
 //
-//        }
+  */
+        }
 
     }
+

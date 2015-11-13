@@ -130,14 +130,14 @@ public class SC_Model_v2_PC {
 
         //Translate the ArrayList<PhraseObjects> into ArrayList<Strings>
         ArrayList<String> filteredPhraseStrings = new ArrayList<>();
-        String s ="Phrase Length"+"\t \t"+"Frequency"+"\t \t" + "Phrase"+"\n";
+        String s ="Length "+"\t "+"Frequency"+" \t" + "Phrase"+"\n";
         filteredPhraseStrings.add(s);
 
-        for(DALPhraseObject tempPhraseObject: PhraseObjectArrayList){
-            s = tempPhraseObject.getNumberOfWords() + "\t \t"+
-                tempPhraseObject.getFrequency() + "\t \t" +
+        for(DALPhraseObject tempPhraseObject: filteredPhraseObjects){
+            s = tempPhraseObject.getNumberOfWords() +"\t  \t"+ " " +
+                tempPhraseObject.getFrequency() + "\t \t \t" +
                 tempPhraseObject.getPhrase() +"\n";
-            System.out.println(s);
+ //           System.out.println(s);
             filteredPhraseStrings.add(s);
         }//for
 
