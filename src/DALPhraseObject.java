@@ -4,12 +4,12 @@ import java.util.List;
 /**
  * Created by PeteCurtis on 11/9/15.
  */
-public class PhraseObject{
+public class DALPhraseObject {
     private String phrase;
     private int frequency;
     private int numberOfWords;
 
-    PhraseObject(String newPhrase, int newNumberOfWords)
+    DALPhraseObject(String newPhrase, int newNumberOfWords)
     {
         this.numberOfWords = newNumberOfWords;
         this.phrase = newPhrase;

@@ -1,13 +1,12 @@
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.text.BreakIterator;
 import java.util.*;
 
 /**
  * Created by PeteCurtis on 11/10/15.
  */
-public class TestPhraseObjectTreeComparator {
+public class DALTestPhraseObjectTreeComparator {
 
     public static final Integer MAX_PHRASE_LENGTH = 11;
     public static final Integer MIN_PHRASE_LENGTH = 2;
@@ -56,15 +55,15 @@ public class TestPhraseObjectTreeComparator {
                 model.processSentenceArray(sentenceArray, MAX_PHRASE_LENGTH, MIN_PHRASE_LENGTH, PHRASE_DELIMITER);
             }
 
-            Collection<PhraseObject> po = model.phraseTable.values();
-//            PhraseObject[] poa = new PhraseObject[2000];
-//            poa = po.toArray(new PhraseObject[0]);
-            ArrayList<PhraseObject> phraseObjectArrayList = new ArrayList<>();
-            phraseObjectArrayList.addAll(po);
+            Collection<DALPhraseObject> po = model.phraseTable.values();
+//            DALPhraseObject[] poa = new DALPhraseObject[2000];
+//            poa = po.toArray(new DALPhraseObject[0]);
+            ArrayList<DALPhraseObject> DALPhraseObjectArrayList = new ArrayList<>();
+            DALPhraseObjectArrayList.addAll(po);
 
             //sort and print by phrase length
-//            phraseObjectArrayList.sort(new PhraseComparator());
-//            for(PhraseObject poo: phraseObjectArrayList){
+//            DALPhraseObjectArrayList.sort(new DALPhraseComparator());
+//            for(DALPhraseObject poo: DALPhraseObjectArrayList){
 //                System.out.print(poo.getNumberOfWords());
 //                System.out.print(poo.getPhrase());
 //                System.out.println(poo.getFrequency());
@@ -73,10 +72,10 @@ public class TestPhraseObjectTreeComparator {
 
             //sort and print by frequency
             String s = null;
-            phraseObjectArrayList.sort(new PhraseWordCountComparator());
+            DALPhraseObjectArrayList.sort(new DALPhraseWordCountComparator());
 
             System.out.print("Frequency"+"\t  " + "NumberOfWords"+"\t" +"Phrase"+"\n");
-            for(PhraseObject poo: phraseObjectArrayList){
+            for(DALPhraseObject poo: DALPhraseObjectArrayList){
 //                System.out.print(poo.getNumberOfWords());
 //                System.out.print(poo.getPhrase());
 //                System.out.println(poo.getFrequency());
@@ -88,8 +87,8 @@ public class TestPhraseObjectTreeComparator {
             System.out.println("");
 
             //sort and print by word count comparator
-//            phraseObjectArrayList.sort(new PhraseWordCountComparator());
-//            for(PhraseObject poo: phraseObjectArrayList){
+//            DALPhraseObjectArrayList.sort(new DALPhraseWordCountComparator());
+//            for(DALPhraseObject poo: DALPhraseObjectArrayList){
 //                System.out.print(poo.getNumberOfWords());
 //                System.out.print(poo.getPhrase());
 //                System.out.println(poo.getFrequency());

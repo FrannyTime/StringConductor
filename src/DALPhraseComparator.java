@@ -3,10 +3,10 @@ import java.util.Comparator;
 /**
  * Created by PeteCurtis on 11/10/15.
  */
-public class PhraseComparator implements Comparator<PhraseObject> {
+public class DALPhraseComparator implements Comparator<DALPhraseObject> {
 
     @Override
-    public int compare(PhraseObject po1, PhraseObject po2) {
+    public int compare(DALPhraseObject po1, DALPhraseObject po2) {
 
         //if phrases have the same frequency return the smaller based on phrase length
         //if the phrase in 1 is smaller than phrase 2

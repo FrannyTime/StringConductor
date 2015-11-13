@@ -17,7 +17,7 @@ public class SC_Controller_v1_franny
 
     public static String theDocument = "";
 
-    public static final String FILE_LOCATION = "/Users/Natera/Documents/CS/SC_text.txt";
+    public static final String FILE_LOCATION = "/Users/PeteCurtis/Desktop/stuff.txt";
 
     public static String readFile(String location) throws FileNotFoundException
     {
@@ -61,14 +61,13 @@ public class SC_Controller_v1_franny
         StringBuilder stringBuilder = new StringBuilder();
 
 
-        for (Map.Entry<String, Integer> entry : model.frequencyTable.entrySet())
+        for (Map.Entry<String, Integer> entry : model.phraseTable.entrySet())
         {
             System.out.println(entry);
             String s = entry.getValue() + "\t" + entry.getKey();
             stringBuilder.append(s);
         }
         view.runApp(args);
-        model.printArrayList(10);
     }
 
     public String getDataStructure(String inputFileLocation) throws IOException
@@ -91,7 +90,7 @@ public class SC_Controller_v1_franny
 
         StringBuilder stringBuilder = new StringBuilder();
 
-        for (Map.Entry<String, Integer> entry : model.frequencyTable.entrySet())
+        for (Map.Entry<String, Integer> entry : model.phraseTable.entrySet())
         {
             System.out.println(entry);
             String s = entry.getValue() + "\t" + entry.getKey();

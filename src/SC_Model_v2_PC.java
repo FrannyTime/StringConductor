@@ -1,5 +1,3 @@
-import apple.laf.JRSUIUtils;
-import javafx.util.Pair;
 import java.util.*;
 import java.lang.StringBuilder;
 
@@ -13,7 +11,7 @@ import java.lang.StringBuilder;
 public class SC_Model_v2_PC {
 
 //    public static TreeMap<String, Pair<Integer,Integer>> phraseTable = new TreeMap<>();
-    public static TreeMap<String, PhraseObject> phraseTable = new TreeMap<>();
+    public static TreeMap<String, DALPhraseObject> phraseTable = new TreeMap<>();
 
     public static void processSentenceArray(String[] sentenceArray, int MAX_PHRASE_LENGTH,
                                             int MIN_PHRASE_LENGTH, String PHRASE_DELIMITER)
@@ -84,12 +82,30 @@ public class SC_Model_v2_PC {
     {
         if (!phraseTable.containsKey(phrase))
         {
-//            PhraseObject po = new PhraseObject(phrase,phraseLength);
-            phraseTable.put(phrase, new PhraseObject(phrase, phraseLength));
+//            DALPhraseObject po = new DALPhraseObject(phrase,phraseLength);
+            phraseTable.put(phrase, new DALPhraseObject(phrase, phraseLength));
         }
         //if the value already exists in the tree
             phraseTable.get(phrase).incrementFrequency();
     }//method
 
+    /**
+     * This method returns the number of words in an array of Strings
+     * Startings with
+     * @param numberOfWordsFilter is the number of words in phrase
+     * @return
+     */
+    public ArrayList<String> filterApplier(Integer numberOfWordsFilter){
+        //return values in a collection
+
+        //if PhraseObjects match numberOfWordsFilter save the values in an ArrayList<String>
+
+        //Sort the ArrayList by frequency
+
+        //Translate the ArrayList<PhraseObjects> into ArrayList<Strings>
+
+        //return the sorted ArrayList of Strings
+        return new ArrayList<String>();
+    }//class
 
 }//class
