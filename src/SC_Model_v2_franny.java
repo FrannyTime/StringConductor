@@ -1,6 +1,3 @@
-import apple.laf.JRSUIUtils;
-
-import javax.swing.tree.TreeModel;
 import java.util.*;
 import java.lang.StringBuilder;
 
@@ -12,11 +9,9 @@ public class SC_Model_v2_franny
      */
 
     public static TreeMap<String, Integer> phraseTable = new TreeMap<>();
-//    public static TreeModel<DALPhraseObject> phraseTable = new ArrayList<>();
 
     public SC_Model_v2_franny() {}
 
-    //
     public static void processSentenceArray(String[] sentenceArray, int MAX_PHRASE_LENGTH,
                                              int MIN_PHRASE_LENGTH, String PHRASE_DELIMITER)
     {
@@ -96,8 +91,6 @@ public class SC_Model_v2_franny
             phraseTable.put(hashEntry, 1);
         }
     }
-
-
 }
 
 

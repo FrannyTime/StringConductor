@@ -1,7 +1,6 @@
 /**
  * Created by Natera on 10/25/15.
  */
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.BreakIterator;
@@ -63,7 +62,6 @@ public class SC_Controller_v1_franny
 
         for (Map.Entry<String, Integer> entry : model.phraseTable.entrySet())
         {
-            System.out.println(entry);
             String s = entry.getValue() + "\t" + entry.getKey();
             stringBuilder.append(s);
         }
