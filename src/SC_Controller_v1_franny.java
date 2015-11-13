@@ -74,15 +74,15 @@ public class SC_Controller_v1_franny {
 //        return returnString;
 //    }
 //
-//    public static String getPhraseFreq
+//    public static String getPhraseFreq(String phrase)
 
-    public static String getImportResults(String phrase) throws IOException
+    public static String getImportResults(String inputFileLocation) throws IOException
     {
         String returnString = new String();
 
         BreakIterator iterator = BreakIterator.getSentenceInstance(Locale.US);
 
-        String document = readFile(FILE_LOCATION);
+        String document = readFile(inputFileLocation);
         iterator.setText(document);
         int start = iterator.first();
 
@@ -102,7 +102,6 @@ public class SC_Controller_v1_franny {
             stringBuilder.append(s);
         }
 
-//        String boogers = "boogers";
         returnString = stringBuilder.toString();
 
         return returnString;
