@@ -20,16 +20,21 @@ public class SC_Controller_v1_franny {
 
     public static final String FILE_LOCATION = "/Users/Natera/Documents/CS/SC_text.txt";
 
-    public static String readFile(String location) throws FileNotFoundException {
+    public static String readFile(String location) throws FileNotFoundException
+    {
         java.io.File docFile = new java.io.File(location);
-        try {
+        try
+        {
             Scanner input = new Scanner(docFile);
 
-            while (input.hasNext()) {
+            while (input.hasNext())
+            {
                 theDocument += input.nextLine();
             }
             input.close();
-        } catch (FileNotFoundException e) {
+        }
+        catch (FileNotFoundException e)
+        {
             System.out.println("FileNotFound");
         }
 
@@ -74,7 +79,12 @@ public class SC_Controller_v1_franny {
 //        return returnString;
 //    }
 //
-//    public static String getPhraseFreq(String phrase)
+    public static String getPhraseFreq(String phrase)
+    {
+        String returnString = new String();
+        returnString = model.getPhraseFreqResults(phrase);
+        return returnString;
+    }
 
     public static String getImportResults(String inputFileLocation) throws IOException
     {
@@ -94,7 +104,6 @@ public class SC_Controller_v1_franny {
         }
 
         StringBuilder stringBuilder = new StringBuilder();
-
         for (Map.Entry<String, Integer> entry : model.frequencyTable.entrySet())
         {
             System.out.println(entry);

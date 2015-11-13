@@ -13,6 +13,18 @@ public class SC_Model_v2_franny
 
     public SC_Model_v2_franny() {}
 
+    public String getPhraseFreqResults(String phrase)
+    {
+        String returnString = new String();
+
+        if (frequencyTable.containsKey(phrase))
+        {
+            returnString =  frequencyTable.get(phrase) + "\t" + phrase;
+        }
+
+        return returnString;
+    }
+
     public static void processSentenceArray(String[] sentenceArray, int MAX_PHRASE_LENGTH,
                                              int MIN_PHRASE_LENGTH, String PHRASE_DELIMITER)
     {
