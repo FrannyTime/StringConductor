@@ -3,7 +3,7 @@ import java.lang.StringBuilder;
 //hi
 public class SC_Model_v2_franny
 {
-// bur
+// burrito
     public static TreeMap<String, Integer> frequencyTable = new TreeMap<>();
 
     public SC_Model_v2_franny() {}
