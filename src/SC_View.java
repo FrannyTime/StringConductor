@@ -98,16 +98,17 @@ public class SC_View extends Application {
         MenuButton fontSizeMenu = new MenuButton("Default");
         fontSizeMenu.setPrefWidth(90);
         MenuItem size12But = new MenuItem("12");
+        MenuItem size13But = new MenuItem("13");
         MenuItem size14But = new MenuItem("14");
         MenuItem size16But = new MenuItem("16");
         MenuItem size20But = new MenuItem("20");
-        fontSizeMenu.getItems().addAll(size12But, size14But, size16But, size20But);
+        fontSizeMenu.getItems().addAll(size12But, size13But, size14But, size16But, size20But);
 
         //Creates the font size HBox
         HBox fontSizeBox = new HBox();
         fontSizeBox.getChildren().addAll(fontSizeLabel, fontSizeMenu);
         fontSizeBox.setMargin(fontSizeLabel, new Insets(6, 0, 0, 35));
-        fontSizeBox.setMargin(fontSizeMenu, new Insets(10, 0, 0, 35));
+        fontSizeBox.setMargin(fontSizeMenu, new Insets(10, 0, 0, 26));
 
         //Creates the filters text
         Text filtersLabel = new Text("Filters");
@@ -131,7 +132,7 @@ public class SC_View extends Application {
         pLengthLabel.setFont(Font.font("System", 24));
 
         //creates the phrase length drop menu
-        MenuButton pLengthMenu = new MenuButton("Select");
+        //MenuButton pLengthMenu = new MenuButton("Select");
         MenuItem optionFour = new MenuItem("4");
         MenuItem optionFive = new MenuItem("5");
         MenuItem optionSix = new MenuItem("6");
@@ -139,12 +140,12 @@ public class SC_View extends Application {
         MenuItem optionEight = new MenuItem("8");
         MenuItem optionNine = new MenuItem("9");
         MenuItem optionTen = new MenuItem("10");
-        pLengthMenu.getItems().addAll(optionFour, optionFive, optionSix, optionSeven,
+        va.pLengthMenu.getItems().addAll(optionFour, optionFive, optionSix, optionSeven,
                                       optionEight, optionNine, optionTen);
 
         //Creates the phrase length HBox
         HBox pLengthBox = new HBox();
-        pLengthBox.getChildren().addAll(pLengthLabel, pLengthMenu);
+        pLengthBox.getChildren().addAll(pLengthLabel, va.pLengthMenu);
 
         //Creates the clear filters and apply button
         Button cFiltersBut = new Button("Clear filters");
@@ -182,6 +183,13 @@ public class SC_View extends Application {
             va.applyFont();
         });
 
+        size13But.setOnAction(e -> {
+            fontSizeMenu.setText("13");
+            va.setAllSizesFalse();
+            va.size13Bool = true;
+            va.applyFont();
+        });
+
         size14But.setOnAction(e -> {
             fontSizeMenu.setText("14");
             va.setAllSizesFalse();
@@ -203,24 +211,68 @@ public class SC_View extends Application {
             va.applyFont();
         });
 
+        optionFour.setOnAction(e -> {
+            va.pLengthMenu.setText("4");
+            va.setAllLengthFalse();
+            va.optionFourBool = true;
+            va.pLengthHaveValue = true;
+        });
+
+        optionFive.setOnAction(e -> {
+            va.pLengthMenu.setText("5");
+            va.setAllLengthFalse();
+            va.optionFiveBool = true;
+            va.pLengthHaveValue = true;
+        });
+
+        optionSix.setOnAction(e -> {
+            va.pLengthMenu.setText("6");
+            va.setAllLengthFalse();
+            va.optionSixBool = true;
+            va.pLengthHaveValue = true;
+        });
+
+        optionSeven.setOnAction(e -> {
+            va.pLengthMenu.setText("7");
+            va.setAllLengthFalse();
+            va.optionSevenBool = true;
+            va.pLengthHaveValue = true;
+        });
+        optionEight.setOnAction(e -> {
+            va.pLengthMenu.setText("8");
+            va.setAllLengthFalse();
+            va.optionEightBool = true;
+            va.pLengthHaveValue = true;
+        });
+        optionNine.setOnAction(e -> {
+            va.pLengthMenu.setText("9");
+            va.setAllLengthFalse();
+            va.optionNineBool = true;
+            va.pLengthHaveValue = true;
+        });
+        optionTen.setOnAction(e -> {
+            va.pLengthMenu.setText("10");
+            va.setAllLengthFalse();
+            va.optionTenBool = true;
+            va.pLengthHaveValue = true;
+        });
+
         cFiltersBut.setOnAction(e -> {
             va.clearFilter();
         });
 
         //Sets action of apply button and returns path directory
         applyBut.setOnAction(e -> {
-            //Creates an alert message dialog
-            Alert importAlert = new Alert(Alert.AlertType.ERROR);
-            importAlert.setTitle("An error has occurred");
-            importAlert.setHeaderText("Importing failed!");
-            importAlert.setContentText("Please check the file format!");
-            importAlert.showAndWait();
+            //va.originalArea.setText(va.getInputField());
+            //va.isSearchEmpty();
+            va.checkFilters();
+            va.originalArea.setText(franny.getPhraseFreq(va.getInputField()));
         });
 
         importBut.setOnAction(e -> {
             String x = new String();
             try {
-                x = franny.getDataStructure(va.importFile(primaryStage));
+                x = franny.getImportResults(va.importFile(primaryStage));
                 va.filteredArea.setText(x);
             }
             catch (IOException IOE){

@@ -58,6 +58,7 @@ public class TestModel_v2
         java.io.FileInputStream fis = new java.io.FileInputStream(FILE_LOCATION);
 
         int nread;
+
         while ((nread = fis.read(buf)) > 0 && !detector.isDone())
         {
             detector.handleData(buf, 0, nread);
@@ -93,15 +94,21 @@ public class TestModel_v2
             Integer wordCount = countTheWords(entry.getKey());
             System.out.println(wordCount);
         }
+//
+//        for (ArrayList<Pair<Integer, String>> list : wordCountList)
+//        {
+//            for (Pair<Integer, String> phrase : list)
+//            {
+//                System.out.println(phrase.getKey() + "\t" + phrase.getValue());
+//            }
+//        }
 
-        for (ArrayList<Pair<Integer, String>> list : wordCountList)
-        {
-            for (Pair<Integer, String> phrase : list)
-            {
-                System.out.println(phrase.getKey() + "\t" + phrase.getValue());
-            }
-        }
+        String phrase = "new text file and see if";
+        String test = model.getPhraseFreqResults(phrase);
+        System.out.println(test);
     }
+
+
 
     private static Integer countTheWords(String phrase)
     {
