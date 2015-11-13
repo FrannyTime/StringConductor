@@ -1,5 +1,6 @@
 import javafx.application.Application;
 import javafx.scene.control.Alert;
+import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
@@ -32,6 +33,7 @@ public class SC_ViewAction {
     TextArea originalArea = new TextArea();
     TextArea filteredArea = new TextArea();
     TextField searchInput = new TextField();
+    MenuButton pLengthMenu = new MenuButton("Select");
 
     public void setAllFontsFalse(){
         arialBool = false;
@@ -91,6 +93,7 @@ public class SC_ViewAction {
         searchHaveValue = false;
         pLengthHaveValue = false;
         searchInput.setText("");
+        pLengthMenu.setText("Select");
     }
 
     public String getInputField(){
@@ -104,10 +107,11 @@ public class SC_ViewAction {
     }
 
     public void checkFilters(){
-        if((searchHaveValue == false) && (pLengthHaveValue == false)){
+        isSearchEmpty();
+        if(((searchHaveValue == false) && (pLengthHaveValue == false)) || ((searchHaveValue == true) && (pLengthHaveValue == true)) ){
             Alert importAlert = new Alert(Alert.AlertType.ERROR);
             importAlert.setTitle("An error has occurred");
-            importAlert.setHeaderText("Select an option!");
+            importAlert.setHeaderText("Select correctly!");
             importAlert.setContentText("Please use only either \"Search\" or \"Phrase Length\"\nPick one only!");
             importAlert.showAndWait();
         }
