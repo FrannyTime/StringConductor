@@ -70,19 +70,19 @@ public class SC_Controller_v1_franny
         view.runApp(args);
     }
 
-//    public static ArrayList<String> getWordCountFreq(Integer wordCount)
-//    {
-//        String returnString = new String();
-//        StringBuilder stringBuilder = new StringBuilder();
-//
-//        for (String entry : )
-//
-//        returnString = pete.getWordCountResults(wordCount);
-//
-//        return returnString;
-//    }
-//
-//    public
+    public static ArrayList<String> getWordCountFreq(Integer wordCount)
+    {
+        String returnString = new String();
+        StringBuilder stringBuilder = new StringBuilder();
+
+        for (String entry : )
+
+        returnString = model.getWordCountResults(wordCount);
+
+        return returnString;
+    }
+
+    public
 
     public static String getImportResults(String phrase) throws IOException
     {
@@ -96,9 +96,10 @@ public class SC_Controller_v1_franny
             stringBuilder.append(s);
         }
 
+        String boogers = "boogers";
         returnString = stringBuilder.toString();
 
-        return returnString;
+        return boogers;
     }
 
 }
