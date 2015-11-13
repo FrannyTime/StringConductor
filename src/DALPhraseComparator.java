@@ -2,6 +2,7 @@ import java.util.Comparator;
 
 /**
  * Created by PeteCurtis on 11/10/15.
+ * Sorts two DALPhraseObject based upon their lexographic values returning the alphabetical shorter one first
  */
 public class DALPhraseComparator implements Comparator<DALPhraseObject> {
 

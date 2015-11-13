@@ -2,6 +2,7 @@ import java.util.Comparator;
 
 /**
  * Created by PeteCurtis on 11/10/15.
+ * This comparators is used to sort by the largest frequency first for DALPhraseObjects
  */
 public class DALPhraseFrequencyComparator implements Comparator<DALPhraseObject> {
 
