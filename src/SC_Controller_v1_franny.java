@@ -17,6 +17,7 @@ public class SC_Controller_v1_franny {
 
 //    private static SC_View view = new SC_View();
     private static SC_Model_v2_franny model = new SC_Model_v2_franny();
+    private static SC_Model_v2_PC model2 = new SC_Model_v2_PC();
 
     public static final String FILE_LOCATION = "/Users/Natera/Documents/CS/SC_text.txt";
 
@@ -67,17 +68,30 @@ public class SC_Controller_v1_franny {
 //    }
 
 
-//    public static ArrayList<String> getWordCountFreq(Integer wordCount)
-//    {
-//        String returnString = new String();
-//        StringBuilder stringBuilder = new StringBuilder();
-//
-//        for (String entry : )
-//
-//        returnString = model.getWordCountResults(wordCount);
-//
-//        return returnString;
-//    }
+    public static String processArrayList(ArrayList<String> list)
+    {
+        String returnString = new String();
+        StringBuilder stringBuilder = new StringBuilder();
+
+        for (String item : list)
+        {
+            stringBuilder.append(item);
+        }
+
+        returnString = stringBuilder.toString();
+
+        return returnString;
+    }
+
+    public static String getWordCountFreq(Integer wordCount)
+    {
+        String returnString = new String();
+        ArrayList<String> list = new ArrayList();
+        list = model2.getWordCountResults(wordCount);
+        returnString = processArrayList(list);
+
+        return returnString;
+    }
 //
     public static String getPhraseFreq(String phrase)
     {
@@ -104,6 +118,7 @@ public class SC_Controller_v1_franny {
         }
 
         StringBuilder stringBuilder = new StringBuilder();
+
         for (Map.Entry<String, Integer> entry : model.frequencyTable.entrySet())
         {
             System.out.println(entry);

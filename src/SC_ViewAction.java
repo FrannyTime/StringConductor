@@ -96,9 +96,9 @@ public class SC_ViewAction {
         pLengthMenu.setText("Select");
     }
 
-    public String getInputField(){
-        return searchInput.getText();
-    }
+//    public String getInputField(){
+//        return searchInput.getText();
+//    }
 
     public void isSearchEmpty(){
         if(searchInput.getText().length() > 0){
@@ -115,6 +115,17 @@ public class SC_ViewAction {
             importAlert.setContentText("Please use only either \"Search\" or \"Phrase Length\"\nPick one only!");
             importAlert.showAndWait();
         }
+    }
+
+    public Integer returnPLength(){
+        if(optionFourBool == true) return 4;
+        if(optionFiveBool == true) return 5;
+        if(optionSixBool == true) return 6;
+        if(optionSevenBool == true) return 7;
+        if(optionEightBool == true) return 8;
+        if(optionNineBool == true) return 9;
+        if(optionTenBool == true) return 10;
+        else return null;
     }
 
     public String importFile(Stage primaryStage){
