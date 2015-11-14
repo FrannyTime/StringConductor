@@ -6,17 +6,23 @@ public class DALMerged_v2
     public static TreeMap<String, Integer> frequencyTable = new TreeMap<>();
     /**
      * PhraseObject DataStructure to store phrases
-     * silly comment
      */
     public static TreeMap<String, DALPhraseObject> phraseTable = new TreeMap<>();
 
 
-    // default constructor
+    /**
+     *Default Constructor for DAL Merged
+     */
     public DALMerged_v2() {}
 
 
-
-    // called by Controller on behalf of view
+    /**
+     *
+     * @param sentenceArray
+     * @param MAX_PHRASE_LENGTH
+     * @param MIN_PHRASE_LENGTH
+     * @param PHRASE_DELIMITER
+     */
     public static void processSentenceArray(String[] sentenceArray, int MAX_PHRASE_LENGTH,
                                             int MIN_PHRASE_LENGTH, String PHRASE_DELIMITER)
     {
@@ -58,9 +64,6 @@ public class DALMerged_v2
 
                     String hashEntry = addTheWords(sentenceArray, stringBuilder, PHRASE_DELIMITER,
                             phraseStartPosition, phraseLength, k);
-
-                    //TESTING
-//                    hashEntry.replace("\n", " ");
 
                     addToFrequencyTable(hashEntry);
                  //   addToPhraseTable(hashEntry, phraseLength);
@@ -176,7 +179,7 @@ public class DALMerged_v2
 
         //Translate the ArrayList<PhraseObjects> into ArrayList<Strings>
         ArrayList<String> filteredPhraseStrings = new ArrayList<>();
-        String s ="Phrase Length"+"\t \t"+"Frequency"+"\t \t" + "Phrase"+"\n";
+        String s ="Words"+"\t \t"+"Frequency"+"\t \t" + "Phrase"+"\n";
         filteredPhraseStrings.add(s);
 
         for(DALPhraseObject tempPhraseObject: filteredPhraseObjects){
@@ -189,7 +192,6 @@ public class DALMerged_v2
         //return the sorted ArrayList of Strings
         return filteredPhraseStrings;
     }//method
-
 
     /**
      * Franny
