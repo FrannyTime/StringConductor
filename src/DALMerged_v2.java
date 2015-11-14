@@ -6,6 +6,7 @@ public class DALMerged_v2
     public static TreeMap<String, Integer> frequencyTable = new TreeMap<>();
     /**
      * PhraseObject DataStructure to store phrases
+     * silly comment
      */
     public static TreeMap<String, DALPhraseObject> phraseTable = new TreeMap<>();
 

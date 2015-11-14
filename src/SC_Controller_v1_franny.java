@@ -82,14 +82,15 @@ public class SC_Controller_v1_franny {
         BreakIterator iterator = BreakIterator.getSentenceInstance(Locale.US);
 
         String document = readFile(inputFileLocation);
-        //TESTING
-        document.replaceAll("\n", " ");
 
         iterator.setText(document);
         int start = iterator.first();
 
         for (int end = iterator.next(); end != BreakIterator.DONE; start = end, end = iterator.next())
         {
+            //TESTING
+            document.replace("\n", "q");
+
             String sentence = document.substring(start, end);
             String[] sentenceArray = sentence.split("\\s+");
             model.processSentenceArray(sentenceArray, MAX_PHRASE_LENGTH, MIN_PHRASE_LENGTH, PHRASE_DELIMITER);
