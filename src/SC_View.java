@@ -16,7 +16,7 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import java.io.IOException;
-//hi
+
 public class SC_View extends Application {
 
     SC_Controller_v1_franny franny = new SC_Controller_v1_franny();
@@ -33,16 +33,17 @@ public class SC_View extends Application {
 
         //Creating the MenuBar
         MenuBar menuBar = new MenuBar();
-        Menu menu1 = new Menu("File");
-        Menu menu2 = new Menu("Options");
-        Menu menu3 = new Menu("Help");
+        Menu menuFile = new Menu("File");
+        Menu menuOptions = new Menu("Options");
+        Menu menuHelp = new Menu("Help");
 
-        //Add import menu item to under File
+        //Add import and save menu item to under file
         MenuItem importBut = new MenuItem("Import");
-        menu1.getItems().add(importBut);
+        MenuItem saveBut = new MenuItem("Save results");
+        menuFile.getItems().addAll(importBut, saveBut);
 
         //Adds menu bar to window and set to top of BorderPane
-        menuBar.getMenus().addAll(menu1, menu2, menu3);
+        menuBar.getMenus().addAll(menuFile, menuOptions, menuHelp);
         bp.setTop(menuBar);
 
         //Creates the original text area at center of BorderPane
@@ -120,9 +121,6 @@ public class SC_View extends Application {
         Text searchLabel = new Text("Search:");
         searchLabel.setFont(Font.font("System", 24));
 
-        //Creates the search input area
-        //TextField searchInput = new TextField();
-
         //Creates the search HBox
         HBox searchBox = new HBox();
         searchBox.getChildren().addAll(searchLabel, va.searchInput);
@@ -132,7 +130,6 @@ public class SC_View extends Application {
         pLengthLabel.setFont(Font.font("System", 24));
 
         //creates the phrase length drop menu
-        //MenuButton pLengthMenu = new MenuButton("Select");
         MenuItem optionFour = new MenuItem("4");
         MenuItem optionFive = new MenuItem("5");
         MenuItem optionSix = new MenuItem("6");
@@ -267,18 +264,20 @@ public class SC_View extends Application {
             //va.isSearchEmpty();
             va.checkFilters();
             va.originalArea.setText(va.returnPLength().toString());
-            va.originalArea.setText(franny.getWordCountFilter(va.returnPLength()));
-//            va.originalArea.setText(franny.getPhraseFreqFilter(va.searchInput.getText()));
+            //va.originalArea.setText(franny.getWordCountFreq(va.returnPLength()));
+            //va.originalArea.setText(franny.getPhraseFreq(va.searchInput.getText()));
         });
 
         importBut.setOnAction(e -> {
-            String x = new String();
             try {
-                x = franny.getImportResults(va.importFile(primaryStage));
-                va.filteredArea.setText(x);
+                va.filteredArea.setText(franny.getImportResults(va.getImportFileDirectory(primaryStage)));
             }
             catch (IOException IOE){
             }
+        });
+
+        saveBut.setOnAction(e -> {
+            va.saveFile(primaryStage);
         });
     }
 
