@@ -57,7 +57,10 @@ public class DALMerged_v2
                     String hashEntry = addTheWords(sentenceArray, stringBuilder, PHRASE_DELIMITER,
                             phraseStartPosition, phraseLength, k);
 
-                    addToFrequencyTable(hashEntry);
+                    hashEntry = hashEntry.trim();
+//                    hashEntry = hashEntry
+
+//                    addToFrequencyTable(hashEntry);
                     addToPhraseTable(hashEntry, phraseLength);
                 }
                 else
@@ -122,7 +125,7 @@ public class DALMerged_v2
      */
     private static void addToPhraseTable(String phrase, int phraseLength)
     {
-        phrase = phrase.trim();
+//        phrase = phrase.trim();
         if (!phraseTable.containsKey(phrase))
         {
             phraseTable.put(phrase, new DALPhraseObject(phrase, phraseLength));

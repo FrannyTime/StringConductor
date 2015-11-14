@@ -37,31 +37,6 @@ public class SC_Controller_v1_franny {
 
         return theDocument;
     }
-//
-//    public static void main(String[] args) throws IOException {
-//        SC_Model_v2_franny model = new SC_Model_v2_franny();
-//
-//        BreakIterator iterator = BreakIterator.getSentenceInstance(Locale.US);
-//
-//        String document = readFile(FILE_LOCATION);
-//        iterator.setText(document);
-//        int start = iterator.first();
-//
-//        for (int end = iterator.next(); end != BreakIterator.DONE; start = end, end = iterator.next()) {
-//            String sentence = document.substring(start, end);
-//            String[] sentenceArray = sentence.split("\\s+");
-//            model.processSentenceArray(sentenceArray, MAX_PHRASE_LENGTH, MIN_PHRASE_LENGTH, PHRASE_DELIMITER);
-//        }
-//
-//        StringBuilder stringBuilder = new StringBuilder();
-//
-//
-//        for (Map.Entry<String, Integer> entry : model.frequencyTable.entrySet()) {
-//            String s = entry.getValue() + "\t" + entry.getKey();
-//            stringBuilder.append(s);
-//        }
-//        view.runApp(args);
-//    }
 
     public static String processArrayList(ArrayList<String> list)
     {
@@ -100,7 +75,6 @@ public class SC_Controller_v1_franny {
     }
 
 
-
     public static String getImportResults(String inputFileLocation) throws IOException
     {
         String returnString = new String();
@@ -108,6 +82,9 @@ public class SC_Controller_v1_franny {
         BreakIterator iterator = BreakIterator.getSentenceInstance(Locale.US);
 
         String document = readFile(inputFileLocation);
+        //TESTING
+        document.replaceAll("\n", " ");
+
         iterator.setText(document);
         int start = iterator.first();
 
