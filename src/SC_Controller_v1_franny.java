@@ -114,7 +114,7 @@ public class SC_Controller_v1_franny {
     {
         for (Map.Entry<String, Integer> entry : model.frequencyTable.entrySet())
         {
-            System.out.println(entry);
+            System.out.println(entry.getValue() + "\t" + entry.getKey());
         }
     }
 

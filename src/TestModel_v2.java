@@ -44,8 +44,9 @@ public class TestModel_v2
 
     public static void main (String[] args) throws IOException
     {
-        SC_Model_v2_franny model = new SC_Model_v2_franny();
-        SC_Model_v2_PC model2 = new SC_Model_v2_PC();
+//        SC_Model_v2_franny model = new SC_Model_v2_franny();
+//        SC_Model_v2_PC model2 = new SC_Model_v2_PC();
+        DALMerged_v2 model = new DALMerged_v2();
         SC_Controller_v1_franny franny = new SC_Controller_v1_franny();
 
         BreakIterator iterator = BreakIterator.getSentenceInstance(Locale.US);
@@ -106,7 +107,8 @@ public class TestModel_v2
 //        }
 
         ArrayList<String> test = new ArrayList<>();
-        test = model2.getWordCountResults(8);
+
+        test = model.getWordCountResults(5);
 
         for (String item : test)
         {
