@@ -37,7 +37,7 @@ public class SC_ViewAction {
     TextArea originalArea = new TextArea();
     TextArea filteredArea = new TextArea();
     TextField searchInput = new TextField();
-    MenuButton pLengthMenu = new MenuButton("Select");
+    MenuButton pLengthMenu = new MenuButton("0");
 
     //Boolean controller methods
     public void setAllFontsFalse() {

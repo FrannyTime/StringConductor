@@ -130,7 +130,7 @@ public class SC_View extends Application {
         pLengthLabel.setFont(Font.font("System", 24));
 
         //creates the phrase length drop menu
-        MenuItem optionZero = new MenuItem();
+        MenuItem optionZero = new MenuItem("0");
         MenuItem optionFour = new MenuItem("4");
         MenuItem optionFive = new MenuItem("5");
         MenuItem optionSix = new MenuItem("6");
@@ -138,7 +138,7 @@ public class SC_View extends Application {
         MenuItem optionEight = new MenuItem("8");
         MenuItem optionNine = new MenuItem("9");
         MenuItem optionTen = new MenuItem("10");
-        va.pLengthMenu.getItems().addAll(optionFour, optionFive, optionSix, optionSeven,
+        va.pLengthMenu.getItems().addAll(optionZero, optionFour, optionFive, optionSix, optionSeven,
                                       optionEight, optionNine, optionTen);
 
         //Creates the phrase length HBox
@@ -207,6 +207,12 @@ public class SC_View extends Application {
             va.setAllSizesFalse();
             va.size20Bool = true;
             va.applyFont();
+        });
+
+        optionZero.setOnAction(e -> {
+            va.pLengthMenu.setText("0");
+            va.setAllLengthFalse();
+            va.pLengthHaveValue = false;
         });
 
         optionFour.setOnAction(e -> {
