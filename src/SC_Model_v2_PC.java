@@ -59,6 +59,7 @@ public class SC_Model_v2_PC {
 
                     String hashEntry = addTheWords(sentenceArray, stringBuilder, PHRASE_DELIMITER,
                             phraseStartPosition, phraseLength, k);
+
                     hashEntry.trim();
                     addToPhraseTable(hashEntry, phraseLength);
                 }

@@ -131,6 +131,7 @@ public class DALMerged_v2
         phraseTable.get(phrase).incrementFrequency();
     }//method
 
+
     public static ArrayList<String> getWordCountResults(Integer numberOfWordsFilter)
     {
         return filterApplier(numberOfWordsFilter);
@@ -144,7 +145,8 @@ public class DALMerged_v2
      * @param numberOfWordsFilter is the number of words in phrase
      * @return
      */
-    private static ArrayList<String> filterApplier(Integer numberOfWordsFilter){
+    private static ArrayList<String> filterApplier(Integer numberOfWordsFilter)
+    {
 
         //return values in a collection
         Collection<DALPhraseObject> po = phraseTable.values();
@@ -173,7 +175,7 @@ public class DALMerged_v2
         for(DALPhraseObject tempPhraseObject: PhraseObjectArrayList){
             s = tempPhraseObject.getNumberOfWords() + "\t \t"+
                     tempPhraseObject.getFrequency() + "\t \t" +
-                    tempPhraseObject.getPhrase() +"\n";
+                    tempPhraseObject.getPhrase();
             filteredPhraseStrings.add(s);
         }//for
 
@@ -182,7 +184,12 @@ public class DALMerged_v2
     }//method
 
 
-
+    /**
+     * Franny
+     * Returns the specific String if it is found in the sorted document
+     * @param phrase
+     * @return The specific string and it's frequency
+     */
     public static String getPhraseFreqResults(String phrase)
     {
         String returnString = new String();
