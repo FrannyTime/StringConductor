@@ -262,8 +262,22 @@ public class SC_View extends Application {
         applyBut.setOnAction(e -> {
 
             va.checkFilters();
-            va.filteredArea.setText(franny.getWordCountFilter(va.returnPLength()));
-            //va.filteredArea.setText(franny.getPhraseFreqFilter(va.searchInput.getText()));
+
+//            if(va.searchHaveValue == true) {
+//                va.filteredArea.setText(franny.getFilteredResultsByWordCount(va.returnPLength()));
+//            }
+//            else if(va.pLengthHaveValue == true) {
+//                va.filteredArea.setText(franny.getPhraseFreqFilter(va.searchInput.getText()));
+//            }
+//
+//            else{
+//                Alert importAlert = new Alert(Alert.AlertType.ERROR);
+//                importAlert.setTitle("An error has occurred");
+//                importAlert.setHeaderText("Select correctly!");
+//                importAlert.setContentText("Please use only either \"Search\" or \"Phrase Length\"\nPick one only!");
+//                importAlert.showAndWait();
+//            }
+
 
         });
 
