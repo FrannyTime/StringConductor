@@ -14,7 +14,7 @@ public class DALPhraseFrequencyComparator implements Comparator<DALPhraseObject>
         if (po1.getFrequency() < po2.getFrequency()) {
             return 1;
         }
-        //if they are the same phrase
+        //if they have the same frequency
         return 0;
 
     }//method
