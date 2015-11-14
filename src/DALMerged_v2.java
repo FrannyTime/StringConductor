@@ -82,9 +82,7 @@ public class DALMerged_v2
     }
 
 
-
-    private static String addTheWords(String[] sentenceArray, StringBuilder stringBuilder,
-                                      String PHRASE_DELIMITER,
+    private static String addTheWords(String[] sentenceArray, StringBuilder stringBuilder, String PHRASE_DELIMITER,
                                       int phraseStartPosition, int phraseLength, int k)
     {
         String hashEntry = new String();
@@ -183,8 +181,8 @@ public class DALMerged_v2
         filteredPhraseStrings.add(s);
 
         for(DALPhraseObject tempPhraseObject: filteredPhraseObjects){
-            s = tempPhraseObject.getNumberOfWords() + "\t \t"+
-                    tempPhraseObject.getFrequency() + "\t \t" +
+            s = tempPhraseObject.getNumberOfWords() + "\t \t \t"+
+                    tempPhraseObject.getFrequency() + "\t \t \t" +
                     tempPhraseObject.getPhrase();
             filteredPhraseStrings.add(s);
         }//for
