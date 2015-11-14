@@ -16,7 +16,7 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import java.io.IOException;
-//hi
+
 public class SC_View extends Application {
 
     SC_Controller_v1_franny franny = new SC_Controller_v1_franny();
@@ -33,16 +33,17 @@ public class SC_View extends Application {
 
         //Creating the MenuBar
         MenuBar menuBar = new MenuBar();
-        Menu menu1 = new Menu("File");
-        Menu menu2 = new Menu("Options");
-        Menu menu3 = new Menu("Help");
+        Menu menuFile = new Menu("File");
+        Menu menuOptions = new Menu("Options");
+        Menu menuHelp = new Menu("Help");
 
-        //Add import menu item to under File
+        //Add import and save menu item to under file
         MenuItem importBut = new MenuItem("Import");
-        menu1.getItems().add(importBut);
+        MenuItem saveBut = new MenuItem("Save as...");
+        menuFile.getItems().addAll(importBut, saveBut);
 
         //Adds menu bar to window and set to top of BorderPane
-        menuBar.getMenus().addAll(menu1, menu2, menu3);
+        menuBar.getMenus().addAll(menuFile, menuOptions, menuHelp);
         bp.setTop(menuBar);
 
         //Creates the original text area at center of BorderPane
@@ -279,6 +280,10 @@ public class SC_View extends Application {
             }
             catch (IOException IOE){
             }
+        });
+
+        saveBut.setOnAction(e -> {
+            va.saveFile(primaryStage);
         });
     }
 
