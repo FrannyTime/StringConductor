@@ -98,7 +98,7 @@ public class SC_Model_v2_PC {
      * @param numberOfWordsFilter
      * @return an Array of Strings
      */
-    public static ArrayList<String> getWordCountResults(Integer numberOfWordsFilter){
+    public static ArrayList<String> getWordCountResults(Integer numberOfWordsFilter) {
         return filterApplier(numberOfWordsFilter);
     }//method
 
@@ -107,6 +107,7 @@ public class SC_Model_v2_PC {
      * @param numberOfWordsFilter is the number of words in phrase
      * @return
      */
+
     private static ArrayList<String> filterApplier(Integer numberOfWordsFilter){
 
         //return values in a collection

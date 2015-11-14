@@ -267,8 +267,8 @@ public class SC_View extends Application {
             //va.isSearchEmpty();
             va.checkFilters();
             va.originalArea.setText(va.returnPLength().toString());
-            //va.originalArea.setText(franny.getWordCountFreq(va.returnPLength()));
-            //va.originalArea.setText(franny.getPhraseFreq(va.searchInput.getText()));
+            va.originalArea.setText(franny.getWordCountFilter(va.returnPLength()));
+            va.originalArea.setText(franny.getPhraseFreqFilter(va.searchInput.getText()));
         });
 
         importBut.setOnAction(e -> {
