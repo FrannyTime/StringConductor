@@ -1,7 +1,7 @@
 /**
  * Created by danieltam on 10/22/15.
  */
-//hi
+
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
