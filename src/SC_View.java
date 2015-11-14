@@ -39,7 +39,7 @@ public class SC_View extends Application {
 
         //Add import and save menu item to under file
         MenuItem importBut = new MenuItem("Import");
-        MenuItem saveBut = new MenuItem("Save as...");
+        MenuItem saveBut = new MenuItem("Save results");
         menuFile.getItems().addAll(importBut, saveBut);
 
         //Adds menu bar to window and set to top of BorderPane
@@ -121,9 +121,6 @@ public class SC_View extends Application {
         Text searchLabel = new Text("Search:");
         searchLabel.setFont(Font.font("System", 24));
 
-        //Creates the search input area
-        //TextField searchInput = new TextField();
-
         //Creates the search HBox
         HBox searchBox = new HBox();
         searchBox.getChildren().addAll(searchLabel, va.searchInput);
@@ -133,7 +130,6 @@ public class SC_View extends Application {
         pLengthLabel.setFont(Font.font("System", 24));
 
         //creates the phrase length drop menu
-        //MenuButton pLengthMenu = new MenuButton("Select");
         MenuItem optionFour = new MenuItem("4");
         MenuItem optionFive = new MenuItem("5");
         MenuItem optionSix = new MenuItem("6");
@@ -273,10 +269,8 @@ public class SC_View extends Application {
         });
 
         importBut.setOnAction(e -> {
-            String x = new String();
             try {
-                x = franny.getImportResults(va.importFile(primaryStage));
-                va.filteredArea.setText(x);
+                va.filteredArea.setText(franny.getImportResults(va.getImportFileDirectory(primaryStage)));
             }
             catch (IOException IOE){
             }

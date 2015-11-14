@@ -14,6 +14,7 @@ import java.io.IOException;
  */
 public class SC_ViewAction {
 
+    //Creates all the boolean for user selections
     boolean arialBool;
     boolean georgiaBool;
     boolean size12Bool;
@@ -31,11 +32,13 @@ public class SC_ViewAction {
     boolean searchHaveValue;
     boolean pLengthHaveValue;
 
+    //Creates the component the user can input
     TextArea originalArea = new TextArea();
     TextArea filteredArea = new TextArea();
     TextField searchInput = new TextField();
     MenuButton pLengthMenu = new MenuButton("Select");
 
+    //Boolean controller methods
     public void setAllFontsFalse() {
         arialBool = false;
         georgiaBool = false;
@@ -59,6 +62,7 @@ public class SC_ViewAction {
         optionTenBool = false;
     }
 
+    //Sets font based on user selection
     public void applyFont() {
         String size = "";
         String font = "";
@@ -84,6 +88,7 @@ public class SC_ViewAction {
         filteredArea.setStyle(font + size);
     }
 
+    //Clears up the search input and phrase length - changes them to default
     public void clearFilter() {
         searchHaveValue = false;
         pLengthHaveValue = false;
@@ -91,16 +96,14 @@ public class SC_ViewAction {
         pLengthMenu.setText("Select");
     }
 
-//    public String getInputField(){
-//        return searchInput.getText();
-//    }
-
+    //Checks if search input is empty or not
     public void isSearchEmpty() {
         if (searchInput.getText().length() > 0) {
             searchHaveValue = true;
         } else searchHaveValue = false;
     }
 
+    //Checks if user has met our precondition - only search or phrase length
     public void checkFilters() {
         isSearchEmpty();
         if (((searchHaveValue == false) && (pLengthHaveValue == false)) || ((searchHaveValue == true) && (pLengthHaveValue == true))) {
@@ -112,6 +115,7 @@ public class SC_ViewAction {
         }
     }
 
+    //Returns which phrase length option the user selected
     public Integer returnPLength() {
         if (optionFourBool == true) return 4;
         else if (optionFiveBool == true) return 5;
@@ -123,7 +127,8 @@ public class SC_ViewAction {
         else return null;
     }
 
-    public String importFile(Stage primaryStage) {
+    //Creates file chooser window for user to select their file to import
+    public String getImportFileDirectory(Stage primaryStage) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Browse File");
         File file = fileChooser.showOpenDialog(primaryStage);
@@ -131,6 +136,7 @@ public class SC_ViewAction {
         return file.getPath();
     }
 
+    //Allow users too save their results into a .txt file
     public void saveFile(Stage primaryStage) {
         FileChooser saveFileChooser = new FileChooser();
         FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("TXT files (*.txt)", "*.txt");
