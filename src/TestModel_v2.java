@@ -18,7 +18,7 @@ public class TestModel_v2
 
     public static String theDocument = "";
 
-    public static final String FILE_LOCATION = "/Users/Natera/Documents/CS/SC_text_new_new16LittleEndian.txt";
+    public static final String FILE_LOCATION = "/Users/PeteCurtis/git/StringConductor/src/noWeirdText";
 
     public static String readFile(String location) throws FileNotFoundException
     {
