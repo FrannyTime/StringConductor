@@ -9,7 +9,6 @@ public class DALMerged_v2 {
     public static TreeMap<String, DALPhraseObject> phraseTable = new TreeMap<>();
 
 
-
     /**
      * Pete
      * @param phrase The Phrase to add store
@@ -32,6 +31,7 @@ public class DALMerged_v2 {
 
 
     /**
+     * Pete
      * This method returns an arry with the correct phrases of the right phrase length.
      * @param numberOfWordsFilter is the number of words in phrase
      * @return
