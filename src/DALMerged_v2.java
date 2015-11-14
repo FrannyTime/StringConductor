@@ -101,7 +101,7 @@ public class DALMerged_v2
 
     private static void addToFrequencyTable(String hashEntry)
     {
-        hashEntry = removeLastChar(hashEntry);
+       hashEntry = removeLastChar(hashEntry);
 
         if (frequencyTable.containsKey(hashEntry))
         {
@@ -122,7 +122,7 @@ public class DALMerged_v2
      */
     private static void addToPhraseTable(String phrase, int phraseLength)
     {
-        phrase = phrase.trim();
+      //  phrase = phrase.trim();
         if (!phraseTable.containsKey(phrase))
         {
             phraseTable.put(phrase, new DALPhraseObject(phrase, phraseLength));
