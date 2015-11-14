@@ -37,7 +37,10 @@ public class SC_Controller_v1_franny {
 
         return theDocument;
     }
-
+    public static String getOriginalDocument()
+    {
+        return theDocument;
+    }
     public static String processArrayList(ArrayList<String> list)
     {
         String returnString = new String();
