@@ -19,6 +19,7 @@ public class DALMerged_v2
     public static void processSentenceArray(String[] sentenceArray, int MAX_PHRASE_LENGTH,
                                             int MIN_PHRASE_LENGTH, String PHRASE_DELIMITER)
     {
+
         int maxPhraseLength = MAX_PHRASE_LENGTH;
 
         if (sentenceArray.length < maxPhraseLength)
@@ -58,7 +59,7 @@ public class DALMerged_v2
                             phraseStartPosition, phraseLength, k);
 
                     addToFrequencyTable(hashEntry);
-                    addToPhraseTable(hashEntry, phraseLength);
+                 //   addToPhraseTable(hashEntry, phraseLength);
                 }
                 else
                 {
@@ -75,14 +76,15 @@ public class DALMerged_v2
 
 
 
-    private static String addTheWords(String[] sentenceArray, StringBuilder stringBuilder, String PHRASE_DELIMITER,
+    private static String addTheWords(String[] sentenceArray, StringBuilder stringBuilder,
+                                      String PHRASE_DELIMITER_1, String PHRASE_DELIMITER_2,
                                       int phraseStartPosition, int phraseLength, int k)
     {
         String hashEntry = new String();
 
         for (; k < phraseStartPosition + (phraseLength); k++)
         {
-            stringBuilder.append(sentenceArray[k] + PHRASE_DELIMITER);
+            stringBuilder.append(sentenceArray[k] + PHRASE_DELIMITER_1);
         }
 
         hashEntry = stringBuilder.toString();

@@ -11,7 +11,9 @@ public class SC_Controller_v1_franny {
 
     public static final Integer MAX_PHRASE_LENGTH = 11;
     public static final Integer MIN_PHRASE_LENGTH = 2;
-    private static final String PHRASE_DELIMITER = " ";
+    private static final String PHRASE_DELIMITER_1 = " ";
+    private static final String PHRASE_DELIMITER_2 = "\n";
+
     public static String theDocument = "";
     private static DALMerged_v2 model = new DALMerged_v2();
 
@@ -90,9 +92,10 @@ public class SC_Controller_v1_franny {
 
         for (int end = iterator.next(); end != BreakIterator.DONE; start = end, end = iterator.next())
         {
+
             String sentence = document.substring(start, end);
             String[] sentenceArray = sentence.split("\\s+");
-            model.processSentenceArray(sentenceArray, MAX_PHRASE_LENGTH, MIN_PHRASE_LENGTH, PHRASE_DELIMITER);
+            model.processSentenceArray(sentenceArray, MAX_PHRASE_LENGTH, MIN_PHRASE_LENGTH, PHRASE_DELIMITER_1, PHRASE_DELIMITER_2);
         }
 
         StringBuilder stringBuilder = new StringBuilder();
