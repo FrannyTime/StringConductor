@@ -38,6 +38,11 @@ public class SC_Controller_v1_franny {
 
         return theDocument;
     }
+
+    /**
+     * Returns the unedited version of the text to the View
+     * @return the original document.
+     */
     public static String getOriginalDocument()
     {
         return theDocument;
