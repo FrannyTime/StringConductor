@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-//hi
+
 /**
  * Created by danieltam on 11/5/15.
  */
@@ -94,7 +94,7 @@ public class SC_ViewAction {
         searchHaveValue = false;
         pLengthHaveValue = false;
         searchInput.setText("");
-        pLengthMenu.setText("Select");
+        pLengthMenu.setText("0");
     }
 
     //Checks if search input is empty or not
