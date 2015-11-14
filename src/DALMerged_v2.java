@@ -179,7 +179,7 @@ public class DALMerged_v2
 
         //Translate the ArrayList<PhraseObjects> into ArrayList<Strings>
         ArrayList<String> filteredPhraseStrings = new ArrayList<>();
-        String s ="Words"+"\t"+"Freq"+"\t \t" + "Phrase"+;
+        String s ="Words"+"\t"+"Freq"+"\t \t" + "Phrase";
         filteredPhraseStrings.add(s);
 
         for(DALPhraseObject tempPhraseObject: filteredPhraseObjects){
