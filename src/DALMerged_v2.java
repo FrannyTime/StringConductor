@@ -6,17 +6,23 @@ public class DALMerged_v2
     public static TreeMap<String, Integer> frequencyTable = new TreeMap<>();
     /**
      * PhraseObject DataStructure to store phrases
-     * silly comment
      */
     public static TreeMap<String, DALPhraseObject> phraseTable = new TreeMap<>();
 
 
-    // default constructor
+    /**
+     *Default Constructor for DAL Merged
+     */
     public DALMerged_v2() {}
 
 
-
-    // called by Controller on behalf of view
+    /**
+     *
+     * @param sentenceArray
+     * @param MAX_PHRASE_LENGTH
+     * @param MIN_PHRASE_LENGTH
+     * @param PHRASE_DELIMITER
+     */
     public static void processSentenceArray(String[] sentenceArray, int MAX_PHRASE_LENGTH,
                                             int MIN_PHRASE_LENGTH, String PHRASE_DELIMITER)
     {
@@ -184,7 +190,6 @@ public class DALMerged_v2
         //return the sorted ArrayList of Strings
         return filteredPhraseStrings;
     }//method
-
 
     /**
      * Franny
