@@ -173,7 +173,7 @@ public class DALMerged_v2
         String s ="Phrase Length"+"\t \t"+"Frequency"+"\t \t" + "Phrase"+"\n";
         filteredPhraseStrings.add(s);
 
-        for(DALPhraseObject tempPhraseObject: filteredPhraseStrings){
+        for(DALPhraseObject tempPhraseObject: filteredPhraseObjects){
             s = tempPhraseObject.getNumberOfWords() + "\t \t"+
                     tempPhraseObject.getFrequency() + "\t \t" +
                     tempPhraseObject.getPhrase();
