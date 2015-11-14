@@ -66,7 +66,7 @@ public class DALMerged_v2
                             phraseStartPosition, phraseLength, k);
 
                     addToFrequencyTable(hashEntry);
-                 //   addToPhraseTable(hashEntry, phraseLength);
+                    addToPhraseTable(hashEntry, phraseLength);
                 }
                 else
                 {
