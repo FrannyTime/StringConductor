@@ -74,7 +74,7 @@ public class SC_Controller_v1_franny {
 
         for (String item : list)
         {
-            stringBuilder.append(item);
+            stringBuilder.append(item+ "\n");
         }
 
         returnString = stringBuilder.toString();
