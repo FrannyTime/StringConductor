@@ -26,7 +26,8 @@ public class SC_Controller_v1_franny {
 
             while (input.hasNext())
             {
-                theDocument += input.nextLine();
+                //TESTING
+                theDocument += input.nextLine()+"\n";
             }
             input.close();
         }
@@ -91,9 +92,6 @@ public class SC_Controller_v1_franny {
 
         for (int end = iterator.next(); end != BreakIterator.DONE; start = end, end = iterator.next())
         {
-            //TESTING
-            document.replace("\n", "q");
-
             String sentence = document.substring(start, end);
             String[] sentenceArray = sentence.split("\\s+");
             model.processSentenceArray(sentenceArray, MAX_PHRASE_LENGTH, MIN_PHRASE_LENGTH, PHRASE_DELIMITER);

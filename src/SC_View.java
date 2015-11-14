@@ -48,8 +48,8 @@ public class SC_View extends Application {
 
         //Creates the original text area at center of BorderPane
         bp.setCenter(va.originalArea);
-        bp.setAlignment(va.originalArea,Pos.CENTER);
-        bp.setMargin(va.originalArea, new Insets(12,0,12,12));
+        bp.setAlignment(va.originalArea, Pos.CENTER);
+        bp.setMargin(va.originalArea, new Insets(12, 0, 12, 12));
         va.originalArea.setMaxSize(500, Region.USE_COMPUTED_SIZE);
         va.originalArea.setMinSize(200, 250);
         va.originalArea.setScaleShape(true);
@@ -57,7 +57,7 @@ public class SC_View extends Application {
         //Creates the filtered field area at right of BorderPane
         bp.setRight(va.filteredArea);
         bp.setAlignment(va.filteredArea, Pos.CENTER);
-        bp.setMargin(va.filteredArea, new Insets(12,12,12, 12));
+        bp.setMargin(va.filteredArea, new Insets(12, 12, 12, 12));
         va.filteredArea.setMaxSize(470, Region.USE_COMPUTED_SIZE);
         va.filteredArea.setMinSize(200, 250);
         va.filteredArea.setScaleShape(true);
@@ -271,6 +271,7 @@ public class SC_View extends Application {
         importBut.setOnAction(e -> {
             try {
                 va.filteredArea.setText(franny.getImportResults(va.getImportFileDirectory(primaryStage)));
+                va.originalArea.setText(franny.getOriginalDocument());
             }
             catch (IOException IOE){
             }
