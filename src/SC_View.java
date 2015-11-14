@@ -275,7 +275,7 @@ public class SC_View extends Application {
                 va.filteredArea.setText(franny.getFilteredResultsByWordCount(va.returnPLength()));
             }
             else if(va.searchHaveValue == true) {
-                va.filteredArea.setText(franny.getPhraseFreqFilter(va.searchInput.getText()));
+                va.filteredArea.setText(franny.getFilteredResultsBySearchPhrase(va.searchInput.getText()));
             }
 
             else{
