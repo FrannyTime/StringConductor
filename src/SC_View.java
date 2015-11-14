@@ -130,6 +130,7 @@ public class SC_View extends Application {
         pLengthLabel.setFont(Font.font("System", 24));
 
         //creates the phrase length drop menu
+        MenuItem optionZero = new MenuItem();
         MenuItem optionFour = new MenuItem("4");
         MenuItem optionFive = new MenuItem("5");
         MenuItem optionSix = new MenuItem("6");
@@ -263,20 +264,20 @@ public class SC_View extends Application {
 
             va.checkFilters();
 
-//            if(va.searchHaveValue == true) {
-//                va.filteredArea.setText(franny.getFilteredResultsByWordCount(va.returnPLength()));
-//            }
-//            else if(va.pLengthHaveValue == true) {
-//                va.filteredArea.setText(franny.getPhraseFreqFilter(va.searchInput.getText()));
-//            }
-//
-//            else{
-//                Alert importAlert = new Alert(Alert.AlertType.ERROR);
-//                importAlert.setTitle("An error has occurred");
-//                importAlert.setHeaderText("Select correctly!");
-//                importAlert.setContentText("Please use only either \"Search\" or \"Phrase Length\"\nPick one only!");
-//                importAlert.showAndWait();
-//            }
+            if(va.pLengthHaveValue == true) {
+                va.filteredArea.setText(franny.getFilteredResultsByWordCount(va.returnPLength()));
+            }
+            else if(va.searchHaveValue == true) {
+                va.filteredArea.setText(franny.getPhraseFreqFilter(va.searchInput.getText()));
+            }
+
+            else{
+                Alert importAlert = new Alert(Alert.AlertType.ERROR);
+                importAlert.setTitle("An error has occurred");
+                importAlert.setHeaderText("Select correctly!");
+                importAlert.setContentText("Please use only either \"Search\" or \"Phrase Length\"\nPick one only!");
+                importAlert.showAndWait();
+            }
 
 
         });

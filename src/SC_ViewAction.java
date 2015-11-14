@@ -22,6 +22,7 @@ public class SC_ViewAction {
     boolean size14Bool;
     boolean size16Bool;
     boolean size20Bool;
+    boolean optionZeroBool;
     boolean optionFourBool;
     boolean optionFiveBool;
     boolean optionSixBool;
@@ -110,7 +111,7 @@ public class SC_ViewAction {
             Alert importAlert = new Alert(Alert.AlertType.ERROR);
             importAlert.setTitle("An error has occurred");
             importAlert.setHeaderText("Select correctly!");
-            importAlert.setContentText("Please use only either \"Search\" or \"Phrase Length\"\nPick one only!");
+            importAlert.setContentText("Please use only either \"Search\" or \"Phrase Length\"\nPick one only! Use \"Clear filters\" button!");
             importAlert.showAndWait();
         }
     }
