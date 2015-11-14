@@ -65,7 +65,7 @@ public class SC_Controller_v1_franny {
         return returnString;
     }
 
-    public static String getWordCountFilter(Integer wordCount)
+    public static String getFilteredResultsByWordCount(Integer wordCount)
     {
         String returnString = new String();
         ArrayList<String> list = new ArrayList();
