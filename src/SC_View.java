@@ -260,12 +260,11 @@ public class SC_View extends Application {
 
         //Sets action of apply button and returns path directory
         applyBut.setOnAction(e -> {
-            //va.originalArea.setText(va.getInputField());
-            //va.isSearchEmpty();
+
             va.checkFilters();
-            va.originalArea.setText(va.returnPLength().toString());
-            va.originalArea.setText(franny.getWordCountFilter(va.returnPLength()));
-            va.originalArea.setText(franny.getPhraseFreqFilter(va.searchInput.getText()));
+            va.filteredArea.setText(franny.getWordCountFilter(va.returnPLength()));
+            va.filteredArea.setText(franny.getPhraseFreqFilter(va.searchInput.getText()));
+
         });
 
         importBut.setOnAction(e -> {
@@ -289,4 +288,5 @@ public class SC_View extends Application {
     public static void runApp(String[] args) {
         launch(args);
     }
+
 }
