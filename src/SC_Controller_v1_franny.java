@@ -83,11 +83,10 @@ public class SC_Controller_v1_franny {
     }
 
 
-
-//
-    public static String getPhraseFreqFilter(String phrase)
+    public static String getFilteredResultsBySearchPhrase(String phrase)
     {
         String returnString = new String();
+        phrase = phrase.trim();
         returnString = model.getPhraseFreqResults(phrase);
         return returnString;
     }

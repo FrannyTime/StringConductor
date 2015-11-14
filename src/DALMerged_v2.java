@@ -15,7 +15,6 @@ public class DALMerged_v2
      */
     public DALMerged_v2() {}
 
-
     /**
      *
      * @param sentenceArray
@@ -48,7 +47,12 @@ public class DALMerged_v2
     }
 
 
-
+    /**
+     *
+     * @param sentenceArray
+     * @param phraseLength
+     * @param PHRASE_DELIMITER
+     */
     private static void chopSentenceArray(String[] sentenceArray, int phraseLength, String PHRASE_DELIMITER)
     {
         int phraseStartPosition = 0;
@@ -81,7 +85,16 @@ public class DALMerged_v2
         }
     }
 
-
+    /**
+     *
+     * @param sentenceArray
+     * @param stringBuilder
+     * @param PHRASE_DELIMITER
+     * @param phraseStartPosition
+     * @param phraseLength
+     * @param k
+     * @return
+     */
     private static String addTheWords(String[] sentenceArray, StringBuilder stringBuilder, String PHRASE_DELIMITER,
                                       int phraseStartPosition, int phraseLength, int k)
     {
@@ -97,15 +110,21 @@ public class DALMerged_v2
     }
 
 
-
-
+    /**
+     *
+     * @param str
+     * @return
+     */
     public static String removeLastChar(String str)
     {
         return str.substring(0,str.length()-1);
     }
 
 
-
+    /**
+     *
+     * @param hashEntry
+     */
     private static void addToFrequencyTable(String hashEntry)
     {
         hashEntry = removeLastChar(hashEntry);
@@ -119,8 +138,6 @@ public class DALMerged_v2
             frequencyTable.put(hashEntry, 1);
         }
     }
-
-
 
     /**
      * Pete
