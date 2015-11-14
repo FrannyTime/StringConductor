@@ -18,7 +18,7 @@ public class TestModel_v2
 
     public static String theDocument = "";
 
-    public static final String FILE_LOCATION = "/Users/PeteCurtis/git/StringConductor/src/noWeirdText";
+    public static final String FILE_LOCATION = "/Users/Natera/Documents/CS/SC_text_noWeird.txt";
 
     public static String readFile(String location) throws FileNotFoundException
     {
@@ -106,6 +106,10 @@ public class TestModel_v2
 //            }
 //        }
 
+
+
+        // test Pete's data structure, wordCount stuff
+
         ArrayList<String> test = new ArrayList<>();
 
         test = model.getWordCountResults(5);
@@ -115,7 +119,14 @@ public class TestModel_v2
             System.out.println(item);
         }
 
-        String string = franny.processArrayList(test);
+        System.out.println("\n\n\n");
+
+        // test Francisco's data structure, freq
+
+        String freqResults = model.getPhraseFreqResults("My friend is Daniel Tam,");
+        System.out.println(freqResults);
+
+
     }
 
 
