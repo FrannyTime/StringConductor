@@ -164,9 +164,11 @@ public class DALMerged_v2
 
         //filtered array List
         ArrayList<DALPhraseObject> filteredPhraseObjects = new ArrayList<>();
+
         //Only save PhraseObjects if they match numberOfWordsFilter.
         for(DALPhraseObject tempPhraseObject: PhraseObjectArrayList){
             if(tempPhraseObject.getNumberOfWords() == numberOfWordsFilter){
+
                 //saveFiltered values
                 filteredPhraseObjects.add(tempPhraseObject);
             }//if
@@ -177,12 +179,12 @@ public class DALMerged_v2
 
         //Translate the ArrayList<PhraseObjects> into ArrayList<Strings>
         ArrayList<String> filteredPhraseStrings = new ArrayList<>();
-        String s ="Words"+"\t \t"+"Frequency"+"\t \t" + "Phrase"+"\n";
+        String s ="Words"+"\t"+"Freq"+"\t \t" + "Phrase"+;
         filteredPhraseStrings.add(s);
 
         for(DALPhraseObject tempPhraseObject: filteredPhraseObjects){
-            s = tempPhraseObject.getNumberOfWords() + "\t \t \t"+
-                    tempPhraseObject.getFrequency() + "\t \t \t" +
+            s = tempPhraseObject.getNumberOfWords() + "\t \t"+
+                    tempPhraseObject.getFrequency() + "\t \t" +
                     tempPhraseObject.getPhrase();
             filteredPhraseStrings.add(s);
         }//for
