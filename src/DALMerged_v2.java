@@ -58,9 +58,6 @@ public class DALMerged_v2
                     String hashEntry = addTheWords(sentenceArray, stringBuilder, PHRASE_DELIMITER,
                             phraseStartPosition, phraseLength, k);
 
-                    //TESTING
-//                    hashEntry.replace("\n", " ");
-
                     addToFrequencyTable(hashEntry);
                     addToPhraseTable(hashEntry, phraseLength);
                 }
@@ -174,7 +171,7 @@ public class DALMerged_v2
 
         //Translate the ArrayList<PhraseObjects> into ArrayList<Strings>
         ArrayList<String> filteredPhraseStrings = new ArrayList<>();
-        String s ="Phrase Length"+"\t \t"+"Frequency"+"\t \t" + "Phrase"+"\n";
+        String s ="Words"+"\t \t"+"Frequency"+"\t \t" + "Phrase"+"\n";
         filteredPhraseStrings.add(s);
 
         for(DALPhraseObject tempPhraseObject: filteredPhraseObjects){

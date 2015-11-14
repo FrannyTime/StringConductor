@@ -73,9 +73,6 @@ public class SC_Controller_v1_franny {
         return returnString;
     }
 
-
-
-//
     public static String getPhraseFreqFilter(String phrase)
     {
         String returnString = new String();
