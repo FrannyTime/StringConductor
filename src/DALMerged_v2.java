@@ -81,14 +81,14 @@ public class DALMerged_v2
 
 
     private static String addTheWords(String[] sentenceArray, StringBuilder stringBuilder,
-                                      String PHRASE_DELIMITER_1, String PHRASE_DELIMITER_2,
+                                      String PHRASE_DELIMITER,
                                       int phraseStartPosition, int phraseLength, int k)
     {
         String hashEntry = new String();
 
         for (; k < phraseStartPosition + (phraseLength); k++)
         {
-            stringBuilder.append(sentenceArray[k] + PHRASE_DELIMITER_1);
+            stringBuilder.append(sentenceArray[k] + PHRASE_DELIMITER);
         }
 
         hashEntry = stringBuilder.toString();

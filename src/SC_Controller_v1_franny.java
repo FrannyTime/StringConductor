@@ -38,10 +38,12 @@ public class SC_Controller_v1_franny {
 
         return theDocument;
     }
+
     public static String getOriginalDocument()
     {
         return theDocument;
     }
+
     public static String processArrayList(ArrayList<String> list)
     {
         String returnString = new String();
@@ -63,14 +65,19 @@ public class SC_Controller_v1_franny {
         String returnString = new String();
         ArrayList<String> list = new ArrayList();
         list = model.getWordCountResults(wordCount);
-        returnString = processArrayList(list);
+        StringBuilder stringBuilder = new StringBuilder();
+
+        for (String item : list)
+        {
+            stringBuilder.append(item);
+        }
+
+        returnString = stringBuilder.toString();
 
         return returnString;
     }
 
 
-
-//
     public static String getPhraseFreqFilter(String phrase)
     {
         String returnString = new String();
