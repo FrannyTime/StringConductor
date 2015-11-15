@@ -5,18 +5,21 @@ public class DALMerged_v2
 {
     public static TreeMap<String, Integer> frequencyTable = new TreeMap<>();
     /**
+     * Pete
      * PhraseObject DataStructure to store phrases
      */
     public static TreeMap<String, DALPhraseObject> phraseTable = new TreeMap<>();
 
 
     /**
+     * Francisco
      *Default Constructor for DAL Merged
      */
     public DALMerged_v2() {}
 
     /**
-     *This cycles through the sentance array and passes every maximum sized sentance to chop sentance array.
+     * Francisco
+     * This cycles through the sentance array and passes every maximum sized sentance to chop sentance array.
      * The end result is you will have cycled through a sentance n times.
      * n=numberof words in sentance % MAX_PHASE_LENGTH +1.
      *
@@ -51,7 +54,8 @@ public class DALMerged_v2
 
 
     /**
-     *This first loops over the sentance in the sentance array and for each sentance it loops returns all the phrase of
+     * Francisco
+     * This first loops over the sentance in the sentance array and for each sentance it loops returns all the phrase of
      * length phraseLength.
      * @param sentenceArray this is the specific number of words to loop over
      * @param phraseLength the number of words in the phrase we are currently cutting for
@@ -90,7 +94,8 @@ public class DALMerged_v2
     }
 
     /**
-     *addTheWords takes a String[] and returns a single string of all of the words in each section.
+     *Francisco
+     * addTheWords takes a String[] and returns a single string of all of the words in each section.
      * @param sentenceArray contains all of the words in the sentance, one in each arrayslot.
      * @param PHRASE_DELIMITER
      * @param phraseStartPosition
@@ -116,6 +121,7 @@ public class DALMerged_v2
 
 
     /**
+     * Francisco
      *This removes the last character of the String and returneds the edited string
      * @param str
      * @return
@@ -127,6 +133,7 @@ public class DALMerged_v2
 
 
     /**
+     * Fransico
      *This adds the value to the frequency table
      * @param hashEntry
      */
@@ -176,8 +183,6 @@ public class DALMerged_v2
     {
         return filterApplier(numberOfWordsFilter);
     }//method
-
-
 
     /**
      * Pete
@@ -229,7 +234,7 @@ public class DALMerged_v2
     }//method
 
     /**
-     * Franny
+     * Francisco
      * Returns the specific String if it is found in the sorted document
      * @param phrase the exact string being searched for
      * @return The specific string and it's frequency
