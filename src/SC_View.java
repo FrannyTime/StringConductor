@@ -149,6 +149,7 @@ public class SC_View extends Application {
         //Creates the clear filters and apply button
         Button cFiltersBut = new Button("Clear filters");
         Button applyBut = new Button("Apply");
+        applyBut.setDisable(true);
 
         leftPane.setMargin(cFiltersBut, new Insets(20, 0, 0, 80));
         leftPane.setMargin(applyBut, new Insets(15, 0, 0, 100));
@@ -286,6 +287,7 @@ public class SC_View extends Application {
                 importAlert.showAndWait();
             }
 
+            //franny.applyFilters(va.searchInput.getText(), va.returnPLength(), va.pLengthHaveValue, va.searchHaveValue);
 
         });
 
@@ -294,7 +296,10 @@ public class SC_View extends Application {
                 va.filteredArea.setText(franny.getImportResults(va.getImportFileDirectory(primaryStage)));
                 va.originalArea.setText(franny.getOriginalDocument());
             }
-            catch (IOException IOE){
+            catch(IOException eo){}
+
+            if(va.importSuccessful == true) {
+                applyBut.setDisable(false);
             }
         });
 
