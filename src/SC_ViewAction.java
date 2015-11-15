@@ -129,7 +129,7 @@ public class SC_ViewAction {
     }
 
     //Creates file chooser window for user to select their file to import
-    public String getImportFileDirectory(Stage primaryStage) throws NullPointerException {
+    public String getImportFileDirectory(Stage primaryStage) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Browse File");
         File file = fileChooser.showOpenDialog(primaryStage);
