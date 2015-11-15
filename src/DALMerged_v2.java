@@ -5,22 +5,28 @@ public class DALMerged_v2
 {
     public static TreeMap<String, Integer> frequencyTable = new TreeMap<>();
     /**
+     * Pete
      * PhraseObject DataStructure to store phrases
      */
     public static TreeMap<String, DALPhraseObject> phraseTable = new TreeMap<>();
 
 
     /**
+     * Francisco
      *Default Constructor for DAL Merged
      */
     public DALMerged_v2() {}
 
     /**
+     * Francisco
+     * This cycles through the sentance array and passes every maximum sized sentance to chop sentance array.
+     * The end result is you will have cycled through a sentance n times.
+     * n=numberof words in sentance % MAX_PHASE_LENGTH +1.
      *
-     * @param sentenceArray
-     * @param MAX_PHRASE_LENGTH
-     * @param MIN_PHRASE_LENGTH
-     * @param PHRASE_DELIMITER
+     * @param sentenceArray String[] with one word in each container
+     * @param MAX_PHRASE_LENGTH the maximum defined phrase length constant
+     * @param MIN_PHRASE_LENGTH the minimum defined phrase length constant
+     * @param PHRASE_DELIMITER the value that seperates each word.
      */
     public static void processSentenceArray(String[] sentenceArray, int MAX_PHRASE_LENGTH,
                                             int MIN_PHRASE_LENGTH, String PHRASE_DELIMITER)
@@ -48,10 +54,13 @@ public class DALMerged_v2
 
 
     /**
-     *
-     * @param sentenceArray
-     * @param phraseLength
-     * @param PHRASE_DELIMITER
+     * Francisco
+     * This first loops over the sentance in the sentance array and for each sentance it loops returns all the phrase of
+     * length phraseLength.
+     * @param sentenceArray this is the specific number of words to loop over
+     * @param phraseLength the number of words in the phrase we are currently cutting for
+     *                     Example: 5 words in this phrase, next iteration 6 words in the phrase
+     * @param PHRASE_DELIMITER This is the character that seperates each phrase.
      */
     private static void chopSentenceArray(String[] sentenceArray, int phraseLength, String PHRASE_DELIMITER)
     {
@@ -64,9 +73,8 @@ public class DALMerged_v2
                 if (sentenceArray[phraseStartPosition + (phraseLength - 1)] != null)
                 {
                     int k = phraseStartPosition;
-                    StringBuilder stringBuilder = new StringBuilder();
 
-                    String hashEntry = addTheWords(sentenceArray, stringBuilder, PHRASE_DELIMITER,
+                    String hashEntry = addTheWords(sentenceArray, PHRASE_DELIMITER,
                             phraseStartPosition, phraseLength, k);
 
                     addToFrequencyTable(hashEntry);
@@ -86,19 +94,21 @@ public class DALMerged_v2
     }
 
     /**
-     *
-     * @param sentenceArray
-     * @param stringBuilder
+     *Francisco
+     * addTheWords takes a String[] and returns a single string of all of the words in each section.
+     * @param sentenceArray contains all of the words in the sentance, one in each arrayslot.
      * @param PHRASE_DELIMITER
      * @param phraseStartPosition
      * @param phraseLength
      * @param k
-     * @return
+     * @return The built string of the words contained in String[]
      */
-    private static String addTheWords(String[] sentenceArray, StringBuilder stringBuilder, String PHRASE_DELIMITER,
+    private static String addTheWords(String[] sentenceArray, String PHRASE_DELIMITER,
                                       int phraseStartPosition, int phraseLength, int k)
     {
         String hashEntry = new String();
+        StringBuilder stringBuilder = new StringBuilder();
+
 
         for (; k < phraseStartPosition + (phraseLength); k++)
         {
@@ -111,7 +121,8 @@ public class DALMerged_v2
 
 
     /**
-     *
+     * Francisco
+     *This removes the last character of the String and returneds the edited string
      * @param str
      * @return
      */
@@ -122,7 +133,8 @@ public class DALMerged_v2
 
 
     /**
-     *
+     * Fransico
+     *This adds the value to the frequency table
      * @param hashEntry
      */
     private static void addToFrequencyTable(String hashEntry)
@@ -141,33 +153,44 @@ public class DALMerged_v2
 
     /**
      * Pete
+     *Adds the phrases to DALPhraseObjects in the phraseTable
      * @param phrase The Phrase to add store
      * @param phraseLength The number of words in the phrase
      */
     private static void addToPhraseTable(String phrase, int phraseLength)
     {
+        //remove whitespace from the phrase
         phrase = phrase.trim();
+
+        //if the phrase is not in the phraseTable
         if (!phraseTable.containsKey(phrase))
         {
             phraseTable.put(phrase, new DALPhraseObject(phrase, phraseLength));
         }
-        //if the value already exists in the tree
+
+        //if the phrase already exists in the phraseTable
         phraseTable.get(phrase).incrementFrequency();
     }//method
 
-
+    /**
+     * Pete
+     * Public accessor meothod for filterApplier
+     *
+     * @param numberOfWordsFilter
+     * @return the ArrayList<String> returned from filterApplier
+     */
     public static ArrayList<String> getWordCountResults(Integer numberOfWordsFilter)
     {
         return filterApplier(numberOfWordsFilter);
     }//method
 
-
-
     /**
      * Pete
-     * This method returns an arry with the correct phrases of the right phrase length.
+     * Filters the PhraseObjects and returns an ArrayList<String> of only those Phrases
+     * Format: numberofWords \t\t Frequency \t \t Phrase
+     *
      * @param numberOfWordsFilter is the number of words in phrase
-     * @return
+     * @return an ArrayList<String> with the phrases of the right phrase length.
      */
     private static ArrayList<String> filterApplier(Integer numberOfWordsFilter)
     {
@@ -211,9 +234,9 @@ public class DALMerged_v2
     }//method
 
     /**
-     * Franny
+     * Francisco
      * Returns the specific String if it is found in the sorted document
-     * @param phrase
+     * @param phrase the exact string being searched for
      * @return The specific string and it's frequency
      */
     public static String getPhraseFreqResults(String phrase)
