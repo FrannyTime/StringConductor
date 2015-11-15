@@ -1,13 +1,20 @@
 /**
- * Created by Natera on 10/25/15.
+ * Controller class for String Conductor. Controller fulfills requests from View class for importing files and applying
+ * filters by retrieving and formatting the appropriate data from the DAL class.
  */
+
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.BreakIterator;
 import java.util.*;
 import java.lang.StringBuilder;
 
-public class SC_Controller_v1_franny {
+/**
+ *
+ */
+public class SC_Controller_v1_franny
+{
 
     public static final Integer MAX_PHRASE_LENGTH = 11;
     public static final Integer MIN_PHRASE_LENGTH = 2;
@@ -17,6 +24,12 @@ public class SC_Controller_v1_franny {
 
     public static final String FILE_LOCATION = "/Users/Natera/Documents/CS/SC_text.txt";
 
+    /**
+     *
+     * @param location
+     * @return
+     * @throws FileNotFoundException
+     */
     public static String readFile(String location) throws FileNotFoundException
     {
         java.io.File docFile = new java.io.File(location);
