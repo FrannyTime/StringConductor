@@ -65,6 +65,24 @@ public class SC_Controller_v1_franny {
         return returnString;
     }
 
+    public static String applyFilters(String phrase, Integer wordCount, boolean wantsPhrase, boolean wantsWordCount)
+    {
+        String returnString = new String();
+
+        /*
+        // if (wantsPhrase && wantsWordCount)
+        {
+
+        }
+        if (
+         */
+
+
+
+        return returnString;
+
+    }
+
     public static String getFilteredResultsByWordCount(Integer wordCount)
     {
         String returnString = new String();
