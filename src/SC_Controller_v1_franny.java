@@ -69,15 +69,25 @@ public class SC_Controller_v1_franny {
     {
         String returnString = new String();
 
-        /*
-        // if (wantsPhrase && wantsWordCount)
+        if (wantsPhrase && wantsWordCount)
         {
-
+            System.out.println("Cannot perform both filters at once.");
         }
-        if (
-         */
 
+        if (!wantsPhrase && !wantsWordCount)
+        {
+            System.out.println("Both filters were false.");
+        }
 
+        if (wantsPhrase && !wantsWordCount && !phrase.equals(null))
+        {
+            returnString = getFilteredResultsBySearchPhrase(phrase);
+        }
+
+        if (wantsWordCount && !wantsPhrase && wordCount != null)
+        {
+            returnString = getFilteredResultsByWordCount(wordCount);
+        }
 
         return returnString;
 
