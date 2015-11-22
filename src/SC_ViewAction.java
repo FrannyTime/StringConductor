@@ -22,7 +22,6 @@ public class SC_ViewAction {
     boolean size14Bool;
     boolean size16Bool;
     boolean size20Bool;
-    boolean optionZeroBool;
     boolean optionFourBool;
     boolean optionFiveBool;
     boolean optionSixBool;
@@ -30,8 +29,9 @@ public class SC_ViewAction {
     boolean optionEightBool;
     boolean optionNineBool;
     boolean optionTenBool;
-    boolean searchHaveValue;
-    boolean pLengthHaveValue;
+    boolean searchHaveValue = false;
+    boolean pLengthHaveValue = false;
+    boolean importSuccessful = false;
 
     //Creates the component the user can input
     TextArea originalArea = new TextArea();
@@ -133,8 +133,13 @@ public class SC_ViewAction {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Browse File");
         File file = fileChooser.showOpenDialog(primaryStage);
-        System.out.println("getCurrentDirectory(): " + file.getPath());
-        return file.getPath();
+        if(file == null){
+            return "";
+        }
+        else {
+            importSuccessful = true;
+            return file.getPath();
+        }
     }
 
     //Allow users too save their results into a .txt file
@@ -145,7 +150,10 @@ public class SC_ViewAction {
         saveFileChooser.setTitle("Save to...");
         File file = saveFileChooser.showSaveDialog(primaryStage);
 
-        if(file != null){
+        if(file == null){
+            System.out.println("Canceled");
+        }
+        else {
             makeSaveFile(filteredArea.getText(), file);
         }
     }
