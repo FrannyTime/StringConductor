@@ -18,7 +18,7 @@ public class TestModel_v2
 
     public static String theDocument = "";
 
-    public static final String FILE_LOCATION = "/Users/Natera/Documents/CS/";
+    public static final String FILE_LOCATION = "/Users/Natera/Documents/CS/SC_text_new_newBOM.txt";
 
     public static String readFile(String location) throws FileNotFoundException
     {
@@ -118,9 +118,9 @@ public class TestModel_v2
         String string = franny.processArrayList(test);
 
         String testApplyFilters = new String();
-        String testPhrase = "My friend is Daniel Tam,";
-        Integer testWordCount = 5;
-        testApplyFilters = franny.applyFilters(testPhrase, testWordCount, true, true);
+        String testPhrase = "Let's make a new text file";
+        Integer testWordCount = 4;
+        testApplyFilters = franny.applyFilters(testPhrase, testWordCount, false, true);
     }
 
 

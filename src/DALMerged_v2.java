@@ -116,7 +116,7 @@ public class DALMerged_v2
 
 
     /**
-     *This removes the last character of the String and returneds the edited string
+     *This removes the last character of the String and returns the edited string
      * @param str
      * @return
      */

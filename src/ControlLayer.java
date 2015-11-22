@@ -6,15 +6,16 @@
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.text.BreakIterator;
-import java.util.*;
-import java.lang.StringBuilder;
+import java.util.ArrayList;
+import java.util.Locale;
+import java.util.Map;
+import java.util.Scanner;
 
 /**
  *
  */
-public class SC_Controller_v1_franny
+public class ControlLayer
 {
 
     public static final Integer MAX_PHRASE_LENGTH = 11;
@@ -71,7 +72,6 @@ public class SC_Controller_v1_franny
         for (String item : list)
         {
             stringBuilder.append(item);
-//            System.out.println(item);
         }
 
         returnString = stringBuilder.toString();
@@ -101,7 +101,6 @@ public class SC_Controller_v1_franny
 
         if (wantsWordCount && !wantsPhrase)
         {
-            System.out.println("cha cha cha");
             ArrayList<String> list = new ArrayList<>();
             list = model.getWordCountResults(wordCount);
             StringBuilder stringBuilder = new StringBuilder();
