@@ -35,8 +35,6 @@ public class SC_View extends Application {
         //Creating the MenuBar
         MenuBar menuBar = new MenuBar();
         Menu menuFile = new Menu("File");
-        Menu menuOptions = new Menu("Options");
-        Menu menuHelp = new Menu("Help");
 
         //Add import and save menu item to under file
         MenuItem importBut = new MenuItem("Import");
@@ -44,7 +42,7 @@ public class SC_View extends Application {
         menuFile.getItems().addAll(importBut, saveBut);
 
         //Adds menu bar to window and set to top of BorderPane
-        menuBar.getMenus().addAll(menuFile, menuOptions, menuHelp);
+        menuBar.getMenus().add(menuFile);
         bp.setTop(menuBar);
 
         //Creates the original text area at center of BorderPane
@@ -140,7 +138,7 @@ public class SC_View extends Application {
         MenuItem optionNine = new MenuItem("9");
         MenuItem optionTen = new MenuItem("10");
         va.pLengthMenu.getItems().addAll(optionZero, optionFour, optionFive, optionSix, optionSeven,
-                                      optionEight, optionNine, optionTen);
+                                         optionEight, optionNine, optionTen);
 
         //Creates the phrase length HBox
         HBox pLengthBox = new HBox();
@@ -160,8 +158,9 @@ public class SC_View extends Application {
                                       filtersLabel, searchBox, pLengthBox,
                                       cFiltersBut, applyBut);
 
-        //Actions of all buttons
-
+        /**
+         * Actions of all buttons
+         */
         arialBut.setOnAction(e -> {
             fontsMenu.setText("Arial");
             va.setAllFontsFalse();
@@ -267,7 +266,9 @@ public class SC_View extends Application {
             va.clearFilter();
         });
 
-        //Sets action of apply button and returns path directory
+        /**
+         * Sets action of apply button
+         */
         applyBut.setOnAction(e -> {
 
             va.checkFilters();
@@ -289,6 +290,9 @@ public class SC_View extends Application {
 
         });
 
+        /**
+         * Sets action of import button
+         */
         importBut.setOnAction(e -> {
             try {
                 va.filteredArea.setText(franny.getImportResults(va.getImportFileDirectory(primaryStage)));
@@ -309,9 +313,5 @@ public class SC_View extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-
-//    public static void runApp(String[] args) {
-//        launch(args);
-//    }
 
 }
