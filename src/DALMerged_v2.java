@@ -49,6 +49,15 @@ public class DALMerged_v2
         }
     }
 
+    /* Unused
+    Used to remove the puncutation from each word in a sentance
+     */
+//    private static String[] removePunctuation(String[] instring){
+//        String[] words = new String;
+//        for(String word : instring
+//        }
+//        words = instring.replaceAll("[^a-zA-Z ]", "").split("\\s+");
+//    }//method
 
     /**
      *This first loops over the sentance in the sentance array and for each sentance it loops returns all the phrase of
