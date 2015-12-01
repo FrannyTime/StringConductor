@@ -20,7 +20,7 @@ import java.io.IOException;
 
 public class SC_View extends Application {
 
-    SC_Controller_v1_franny franny = new SC_Controller_v1_franny();
+    ControlLayer franny = new ControlLayer();
     SC_ViewAction va = new SC_ViewAction();
 
     @Override
@@ -35,8 +35,6 @@ public class SC_View extends Application {
         //Creating the MenuBar
         MenuBar menuBar = new MenuBar();
         Menu menuFile = new Menu("File");
-        Menu menuOptions = new Menu("Options");
-        Menu menuHelp = new Menu("Help");
 
         //Add import and save menu item to under file
         MenuItem importBut = new MenuItem("Import");
@@ -44,7 +42,7 @@ public class SC_View extends Application {
         menuFile.getItems().addAll(importBut, saveBut);
 
         //Adds menu bar to window and set to top of BorderPane
-        menuBar.getMenus().addAll(menuFile, menuOptions, menuHelp);
+        menuBar.getMenus().add(menuFile);
         bp.setTop(menuBar);
 
         //Creates the original text area at center of BorderPane
@@ -140,7 +138,7 @@ public class SC_View extends Application {
         MenuItem optionNine = new MenuItem("9");
         MenuItem optionTen = new MenuItem("10");
         va.pLengthMenu.getItems().addAll(optionZero, optionFour, optionFive, optionSix, optionSeven,
-                                      optionEight, optionNine, optionTen);
+                                         optionEight, optionNine, optionTen);
 
         //Creates the phrase length HBox
         HBox pLengthBox = new HBox();
@@ -160,8 +158,9 @@ public class SC_View extends Application {
                                       filtersLabel, searchBox, pLengthBox,
                                       cFiltersBut, applyBut);
 
-        //Actions of all buttons
-
+        /**
+         * Actions of all buttons
+         */
         arialBut.setOnAction(e -> {
             fontsMenu.setText("Arial");
             va.setAllFontsFalse();
@@ -267,30 +266,33 @@ public class SC_View extends Application {
             va.clearFilter();
         });
 
-        //Sets action of apply button and returns path directory
+        /**
+         * Sets action of apply button
+         */
         applyBut.setOnAction(e -> {
 
             va.checkFilters();
 
-            if(va.pLengthHaveValue == true) {
+            if (((va.searchHaveValue == false) && (va.pLengthHaveValue == false)) || ((va.searchHaveValue == true) && (va.pLengthHaveValue == true))) {
+                Alert importAlert = new Alert(Alert.AlertType.ERROR);
+                importAlert.setTitle("An error has occurred");
+                importAlert.setHeaderText("Select correctly!");
+                importAlert.setContentText("Please use only either \"Search\" or \"Phrase Length\"\nPick one only! Use \"Clear filters\" button!");
+                importAlert.showAndWait();
+            }
+
+            else if(va.pLengthHaveValue == true) {
                 va.filteredArea.setText(franny.getFilteredResultsByWordCount(va.returnPLength()));
             }
             else if(va.searchHaveValue == true) {
                 va.filteredArea.setText(franny.getFilteredResultsBySearchPhrase(va.searchInput.getText()));
             }
 
-            else{
-                Alert importAlert = new Alert(Alert.AlertType.ERROR);
-                importAlert.setTitle("An error has occurred");
-                importAlert.setHeaderText("Select correctly!");
-                importAlert.setContentText("Please use only either \"Search\" or \"Phrase Length\"\nPick one only!");
-                importAlert.showAndWait();
-            }
-
-            //franny.applyFilters(va.searchInput.getText(), va.returnPLength(), va.pLengthHaveValue, va.searchHaveValue);
-
         });
 
+        /**
+         * Sets action of import button
+         */
         importBut.setOnAction(e -> {
             try {
                 va.filteredArea.setText(franny.getImportResults(va.getImportFileDirectory(primaryStage)));
@@ -303,16 +305,15 @@ public class SC_View extends Application {
             }
         });
 
+        /**
+         * Sets action of save button
+         */
         saveBut.setOnAction(e -> {
             va.saveFile(primaryStage);
         });
     }
 
     public static void main(String[] args) {
-        launch(args);
-    }
-
-    public static void runApp(String[] args) {
         launch(args);
     }
 

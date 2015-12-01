@@ -1,5 +1,7 @@
-import javafx.application.Application;
-import javafx.scene.control.Alert;
+/**
+ * Created by danieltam on 11/5/15.
+ */
+
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -9,19 +11,20 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-/**
- * Created by danieltam on 11/5/15.
- */
 public class SC_ViewAction {
 
-    //Creates all the boolean for user selections
+    /**
+     * Creates all the booleans for user selections
+     */
     boolean arialBool;
     boolean georgiaBool;
+
     boolean size12Bool;
     boolean size13Bool;
     boolean size14Bool;
     boolean size16Bool;
     boolean size20Bool;
+
     boolean optionFourBool;
     boolean optionFiveBool;
     boolean optionSixBool;
@@ -29,22 +32,30 @@ public class SC_ViewAction {
     boolean optionEightBool;
     boolean optionNineBool;
     boolean optionTenBool;
+
     boolean searchHaveValue = false;
     boolean pLengthHaveValue = false;
     boolean importSuccessful = false;
 
-    //Creates the component the user can input
+    /**
+     * Creates the the text area and field
+     */
     TextArea originalArea = new TextArea();
     TextArea filteredArea = new TextArea();
     TextField searchInput = new TextField();
     MenuButton pLengthMenu = new MenuButton("0");
 
-    //Boolean controller methods
+    /**
+     * Sets all font booleans to false
+     */
     public void setAllFontsFalse() {
         arialBool = false;
         georgiaBool = false;
     }
 
+    /**
+     * Sets all size booleans to false
+     */
     public void setAllSizesFalse() {
         size12Bool = false;
         size14Bool = false;
@@ -53,6 +64,9 @@ public class SC_ViewAction {
         size20Bool = false;
     }
 
+    /**
+     * Sets all length booleans to false
+     */
     public void setAllLengthFalse() {
         optionFourBool = false;
         optionFiveBool = false;
@@ -63,7 +77,9 @@ public class SC_ViewAction {
         optionTenBool = false;
     }
 
-    //Sets font based on user selection
+    /**
+     * Sets font based on user selection
+     */
     public void applyFont() {
         String size = "";
         String font = "";
@@ -89,7 +105,9 @@ public class SC_ViewAction {
         filteredArea.setStyle(font + size);
     }
 
-    //Clears up the search input and phrase length - changes them to default
+    /**
+     * Clears up the search input and phrase length - changes them to default
+     */
     public void clearFilter() {
         searchHaveValue = false;
         pLengthHaveValue = false;
@@ -97,26 +115,20 @@ public class SC_ViewAction {
         pLengthMenu.setText("0");
     }
 
-    //Checks if search input is empty or not
-    public void isSearchEmpty() {
+    /**
+     * Checks if user has met our precondition - only search or phrase length
+     */
+    public void checkFilters() {
         if (searchInput.getText().length() > 0) {
             searchHaveValue = true;
         } else searchHaveValue = false;
     }
 
-    //Checks if user has met our precondition - only search or phrase length
-    public void checkFilters() {
-        isSearchEmpty();
-        if (((searchHaveValue == false) && (pLengthHaveValue == false)) || ((searchHaveValue == true) && (pLengthHaveValue == true))) {
-            Alert importAlert = new Alert(Alert.AlertType.ERROR);
-            importAlert.setTitle("An error has occurred");
-            importAlert.setHeaderText("Select correctly!");
-            importAlert.setContentText("Please use only either \"Search\" or \"Phrase Length\"\nPick one only! Use \"Clear filters\" button!");
-            importAlert.showAndWait();
-        }
-    }
 
-    //Returns which phrase length option the user selected
+    /**
+     * Returns which phrase length option the user selected
+     * @return The phrase length specified by the user
+     */
     public Integer returnPLength() {
         if (optionFourBool == true) return 4;
         else if (optionFiveBool == true) return 5;
@@ -128,7 +140,9 @@ public class SC_ViewAction {
         else return null;
     }
 
-    //Creates file chooser window for user to select their file to import
+    /**
+     *Creates file chooser window for user to select their file to import
+     */
     public String getImportFileDirectory(Stage primaryStage) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Browse File");
@@ -142,7 +156,10 @@ public class SC_ViewAction {
         }
     }
 
-    //Allow users too save their results into a .txt file
+    /**
+     * Allow users too save their results into a .txt file
+     * @param primaryStage
+     */
     public void saveFile(Stage primaryStage) {
         FileChooser saveFileChooser = new FileChooser();
         FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("TXT files (*.txt)", "*.txt");
@@ -158,6 +175,11 @@ public class SC_ViewAction {
         }
     }
 
+    /**
+     * Creates the save file at chosen location
+     * @param content The content of the filtered results pane
+     * @param file The chosen to be saved as by the user
+     */
     public void makeSaveFile(String content, File file) {
         try {
             FileWriter fileWriter;
