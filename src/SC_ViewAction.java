@@ -14,7 +14,7 @@ import java.io.IOException;
 public class SC_ViewAction {
 
     /**
-     * Creates all the boolean for user selections
+     * Creates all the booleans for user selections
      */
     boolean arialBool;
     boolean georgiaBool;

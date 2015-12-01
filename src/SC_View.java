@@ -305,6 +305,9 @@ public class SC_View extends Application {
             }
         });
 
+        /**
+         * Sets action of save button
+         */
         saveBut.setOnAction(e -> {
             va.saveFile(primaryStage);
         });
