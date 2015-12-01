@@ -178,7 +178,6 @@ public class DALMerged_v2
     }//method
 
 
-
     /**
      * Pete
      * Filters the PhraseObjects and returns an ArrayList<String> of only those Phrases

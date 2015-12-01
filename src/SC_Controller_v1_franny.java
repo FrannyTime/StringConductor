@@ -22,8 +22,6 @@ public class SC_Controller_v1_franny
     private static DALMerged_v2 model = new DALMerged_v2();
     private static final String IMPORT_MESSAGE = "";
 
-    //TESTING
-    public static final String FILE_LOCATION = "/Users/Natera/Documents/CS/SC_text.txt";
 
     /**
      * Francisco
