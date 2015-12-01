@@ -20,7 +20,7 @@ import java.io.IOException;
 
 public class SC_View extends Application {
 
-    SC_Controller_v1_franny franny = new SC_Controller_v1_franny();
+    ControlLayer franny = new ControlLayer();
     SC_ViewAction va = new SC_ViewAction();
 
     @Override
@@ -272,22 +272,20 @@ public class SC_View extends Application {
 
             va.checkFilters();
 
-            if(va.pLengthHaveValue == true) {
+            if (((va.searchHaveValue == false) && (va.pLengthHaveValue == false)) || ((va.searchHaveValue == true) && (va.pLengthHaveValue == true))) {
+                Alert importAlert = new Alert(Alert.AlertType.ERROR);
+                importAlert.setTitle("An error has occurred");
+                importAlert.setHeaderText("Select correctly!");
+                importAlert.setContentText("Please use only either \"Search\" or \"Phrase Length\"\nPick one only! Use \"Clear filters\" button!");
+                importAlert.showAndWait();
+            }
+
+            else if(va.pLengthHaveValue == true) {
                 va.filteredArea.setText(franny.getFilteredResultsByWordCount(va.returnPLength()));
             }
             else if(va.searchHaveValue == true) {
                 va.filteredArea.setText(franny.getFilteredResultsBySearchPhrase(va.searchInput.getText()));
             }
-
-            else{
-                Alert importAlert = new Alert(Alert.AlertType.ERROR);
-                importAlert.setTitle("An error has occurred");
-                importAlert.setHeaderText("Select correctly!");
-                importAlert.setContentText("Please use only either \"Search\" or \"Phrase Length\"\nPick one only!");
-                importAlert.showAndWait();
-            }
-
-            //franny.applyFilters(va.searchInput.getText(), va.returnPLength(), va.pLengthHaveValue, va.searchHaveValue);
 
         });
 
@@ -312,8 +310,8 @@ public class SC_View extends Application {
         launch(args);
     }
 
-    public static void runApp(String[] args) {
-        launch(args);
-    }
+//    public static void runApp(String[] args) {
+//        launch(args);
+//    }
 
 }

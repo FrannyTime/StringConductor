@@ -47,7 +47,7 @@ public class TestModel_v2
 //        SC_Model_v2_franny model = new SC_Model_v2_franny();
 //        SC_Model_v2_PC model2 = new SC_Model_v2_PC();
         DALMerged_v2 model = new DALMerged_v2();
-        SC_Controller_v1_franny franny = new SC_Controller_v1_franny();
+        ControlLayer franny = new ControlLayer();
 
         BreakIterator iterator = BreakIterator.getSentenceInstance(Locale.US);
 

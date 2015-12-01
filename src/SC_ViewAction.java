@@ -97,23 +97,11 @@ public class SC_ViewAction {
         pLengthMenu.setText("0");
     }
 
-    //Checks if search input is empty or not
-    public void isSearchEmpty() {
+    //Checks if user has met our precondition - only search or phrase length
+    public void checkFilters() {
         if (searchInput.getText().length() > 0) {
             searchHaveValue = true;
         } else searchHaveValue = false;
-    }
-
-    //Checks if user has met our precondition - only search or phrase length
-    public void checkFilters() {
-        isSearchEmpty();
-        if (((searchHaveValue == false) && (pLengthHaveValue == false)) || ((searchHaveValue == true) && (pLengthHaveValue == true))) {
-            Alert importAlert = new Alert(Alert.AlertType.ERROR);
-            importAlert.setTitle("An error has occurred");
-            importAlert.setHeaderText("Select correctly!");
-            importAlert.setContentText("Please use only either \"Search\" or \"Phrase Length\"\nPick one only! Use \"Clear filters\" button!");
-            importAlert.showAndWait();
-        }
     }
 
     //Returns which phrase length option the user selected
